@@ -17,4 +17,16 @@ app.get('/users/:id', async(req, res) => {
     res.json(documents)
 })
 
+app.post('/users', async(req,res) => {
+    let newUser = {
+        name: req.body.name,
+        surname: req.body.surname,
+        username: req.body.username,
+        email: req.body.email,
+        password:req.body.password 
+    }
+    newUser = await users.insert(newUser)
+    res.json({'newUser: newUser'})
+})
+
 app.listen(8070, () => console.log('Server started'))
