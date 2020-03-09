@@ -1,0 +1,99 @@
+body {
+    background-image: url(./IMG/backgroundImgSignUp.jpg);
+    background-size: cover;
+    margin: 0;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.login{
+    background-image: url(IMG/backgroundImgLogIn.jpg);
+}
+
+.link {
+    text-decoration: none;
+    color: #5d5d5d;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    font-family: 'Quicksand', 'sans-serif';
+}
+
+#create-login-form{
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input,
+create-login-form{
+    margin: 1vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3vh;
+    margin-top: 20px;
+}
+
+.buttom{
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #fefefe;
+    border-color: rgba(0, 0, 0, 0.0);
+    padding: 1rem;
+    margin-top: 30px;
+}
+
+.Container__Title {
+    display: flex;
+}
+
+.title,
+.title__sub {
+    font-family: 'Quicksand', sans-serif;
+    color: #B1B1B1;
+    font-weight: 900;
+    font-size: 15vh;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.title__sub {
+    font-weight: 100;
+    margin-left: 20px;
+}
+
+#create-user-form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input,
+create-user-form {
+    margin: 1vh;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2.5vh;
+}
+
+input[type=Submit] {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #fefefe;
+    border-color: rgba(0, 0, 0, 0.0);
+    padding: 1rem;
+}
+
+footer {
+    font-family: 'Quicksand', sans-serif;
+    color: #b1b1b1;
+    display: flex;
+    justify-content: flex-start;
+    width: 95%;
+}
+
+
