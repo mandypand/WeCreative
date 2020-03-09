@@ -36,23 +36,39 @@ function initForm(){
             const email = form.querySelector('.email').value
             const password = form.querySelector('.password').value
             const passwordAgain = form.querySelector('.passwordAgain').value
-
+            const errorName = document.querySelector(".Error__Name")
+            const errorSurname = document.querySelector(".Error__Surname")
+            const errorUsername = document.querySelector(".Error__Username")
+            const errorEmail = document.querySelector(".Error__Email")
+            const errorPassword = document.querySelector(".Error__Password")
+            const errorPasswordRepeat = document.querySelector(".Error__Password__Repeat")
+            
             if(name.length < 2){
-                alert('At least two characters')
-            } else if(surname.length <2){
-                alert('At least two characters')
-            } else if(username.length <2){
-                alert("At least two characters")
-            }else if(email.length <2){
-                alert("At least two characters")
-            }else if(password.length <2){
-                alert("At least two characters")
-            }else if(passwordAgain != password){
-                alert("Your passwords doesnt't match")
+                errorName.classList.toggle("hide")
+                errorName.innerHTML = "At least two characters"
+
+            } if(surname.length < 2){
+                errorSurname.classList.toggle("hide")
+                errorSurname.innerHTML = "At least two characters"
+
+            } if(username.length < 2){
+                errorUsername.classList.toggle("hide")
+                errorUsername.innerHTML = "At least two characters"
+
+            } if(email.length < 2){
+                errorEmail.classList.toggle("hide")
+                errorEmail.innerHTML = "Email alreaty exist"
+
+            } if(password.length < 2){
+                errorPassword.classList.toggle("hide")
+                errorPassword.innerHTML = "At least two characters"
+
+            } if(passwordAgain != password){
+                errorPasswordRepeat.classList.toggle("hide")
+                errorPasswordRepeat.innerHTML = "Password does not match!"
             } else {
             createUser(name, surname, username, email, password)
-        }
-
+            }
     })
 }
 
@@ -63,4 +79,4 @@ async function run(){
 }
 
 run()
-console.log("hej")
+

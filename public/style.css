@@ -96,4 +96,10 @@ footer {
     width: 95%;
 }
 
+.hide {
+    font-family: 'Quicksand', sans-serif;
+    color: red; 
+    text-align: center;
+}
+
 
