@@ -20,21 +20,26 @@ app.get('/users/:id', async (req, res) => {
 
 app.post('/users', async (req, res) => {
     let user = await users.findOne({ email: req.body.email })
-    let emailSign = req.body.email
+    let userName = await users.findOne({username: req.body.username})
 
-    if (!user) {
-        let newUser = {
-            name: req.body.name,
-            surname: req.body.surname,
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
+    if(!userName){
+        if (!user) {
+            let newUser = {
+                name: req.body.name,
+                surname: req.body.surname,
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password
+            }
+            const documents = await users.insert(newUser);
+            res.json(documents)
+    
         }
-        const documents = await users.insert(newUser);
-        res.json(documents)
 
-    } else {
-        console.log("error")
+    }
+    else {
+        res.status(404)
+        res.send({error: 'error'})
     }
 
 })
