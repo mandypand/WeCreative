@@ -4,66 +4,77 @@
 			"name": "Caroline",
 			"surname": "Olby",
 			"email": "carolineolby@hotmail.com",
+			"username": "caol1",
 			"password": "co123"
         },
         {
 			"name": "Amanda",
 			"surname": "Jakobsson",
 			"email": "amandajakobsson@me.com",
+			"username": "amja2",
 			"password": "aj123"
         },
         {
 			"name": "Rodrigo",
 			"surname": "Ruiz",
 			"email": "rodrigo.s-wdk@outlook.com",
+			"username": "roru3",
 			"password": "rr123"
         },
         {
 			"name": "Andreas",
 			"surname": "Norberg",
 			"email": "Andreas90norberg@outlook.com",
+			"username": "anno4",
 			"password": "an123"
         },
         {
 			"name": "Hanna",
 			"surname": "Westlund",
 			"email": "hanna.westlund@example.com",
+			"username": "hawe5",
 			"password": "hw123"
         },
         {
 			"name": "Niklas",
 			"surname": "Borg",
 			"email": "niklas.borg@example.com",
+			"username": "nibo6",
 			"password": "nb123"
         },
         {
 			"name": "Joakim",
 			"surname": "Hedlund",
 			"email": "joakim.hedlund@example.com",
+			"username": "johe7",
 			"password": "jh123"
         }, 
         {
 			"name": "Cassandra",
 			"surname": "Bastias",
 			"email": "cassandra.bastias@example.com",
+			"username": "caba8",
 			"password": "cb123"
         },
         {
 			"name": "Bruna",
 			"surname": "Piloto",
 			"email": "bruna.piloto@example.com",
+			"username": "brpi9",
 			"password": "bp123"
         },
         {
 			"name": "Aram",
 			"surname": "Naim",
 			"email": "aram.naim@example.com",
+			"username": "arna10",
 			"password": "ar123"
         },
         {
 			"name": "Camilla",
 			"surname": "Gapparova",
 			"email": "camilla.gapparova@example.com",
+			"username": "caga11",
 			"password": "cg123"
 		}
 	]
