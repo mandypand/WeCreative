@@ -18,19 +18,24 @@ app.get('/users/:id', async(req, res) => {
 })
 
 app.post('/users', async(req,res) => {
-let newUser = {
-    name: req.body.name,
-    surname: req.body.surname,
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password 
+    let user = await users.findOne({email: req.body.email})
+    let emailSign = req.body.email
+
+if(!user){
+    let newUser = {
+        name: req.body.name,
+        surname: req.body.surname,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password 
+    }
+    const documents = await users.insert(newUser);
+    res.json(documents)
+
+} else {
+    console.log("error")
 }
-const documents = await users.insert(newUser);
-res.json(documents)
-
-
-      
-    
+     
 })
 
 app.listen(8070, () => console.log('Server started'))
