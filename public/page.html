@@ -7,23 +7,28 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
-    <body class="Profile">
-        <div class="wrap">
-            <h1 class="Headline__Profile"> PROFILE</h1>
-            <p class="Paragraph__Profile">Whats on your mind today?</p>
-            <form action="/add" method="POST" class="post-form">
-                <input class="Input__Profile-title" type="text" name="title" placeholder="title">
-                <textarea name="content" cols="30" rows="25"></textarea>
-                <div class="Buttons">
-                    <button type="submit" value="publish"> publish </button>
-                </div>
-            </form>
+    <body>
+        <div class="Wrap__Profile">
+            <section class="Profile">
+                <article class="Posts__Container-left"></article>
+                <article class="Posts__Container-right">
+                    <h1 class="Headline__Profile"> PROFILE</h1>
+                    <p class="Paragraph__Profile">Whats on your mind today?</p>
+                    <form action="/add" method="POST" class="post-form">
+                        <input class="Input__Profile-title" type="text" name="title" placeholder="title">
+                        <textarea name="content" cols="30" rows="25"></textarea>
+                        <div class="Buttons">
+                            <button type="submit" value="publish"> publish </button>
+                        </div>
+                    </form>
+                </article>
+            </section>
             <section class="Posts__Container">
                 <article class="Posts__Container-left"></article>
                 <article class="Posts__Container-right">
                     <form class="Posts">
                         <input class = "Input__Profile-title" type="text" name="title" placeholder= "Title">
-                        <textarea name="content" cols="30" rows="25">HEJ HÄR är ett hårdkodat inlägg</textarea>
+                        <textarea name="content" cols="30" rows="25"></textarea>
                         <div class="Controls">
                             <button class="icon-btn">
                                 <i class="material-icons">update</i>

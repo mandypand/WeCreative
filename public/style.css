@@ -26,7 +26,7 @@ body {
 
 
 /* LOGIN */ 
-.wrap {
+.Wrap  {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,6 +36,8 @@ body {
 .login {
     background-image: url(IMG/backgroundImgLogIn.jpg);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     margin: 0;
 }
 
@@ -57,7 +59,6 @@ body {
 
 input,
 create-login-form{
-    margin: 1vh;
     font-family: 'Quicksand', sans-serif;
     font-size: 3vh;
     margin-top: 20px;
@@ -78,6 +79,8 @@ create-login-form{
 .signup {
     background-image: url(./IMG/backgroundImgSignUp.jpg);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     margin: 0;
 }
 
@@ -114,8 +117,14 @@ input[type=Submit] {
 
 /* PROFILE */
 .Profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background-image: url(IMG/backgroundImgProfile.jpg);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     margin: 0;
 }
 
@@ -125,7 +134,7 @@ input[type=Submit] {
     color: #B1B1B1;
     font-weight: 100;
     font-size: 80px;
-    text-align: center;
+    align-items: center;
     word-spacing: 10px;
 }
 
@@ -140,7 +149,7 @@ input[type=Submit] {
     display: flex; 
     flex-direction: column;
     justify-content: center;
-    width: 50%; 
+    width: 90%; 
 }
 
 .Input__Profile-title {
@@ -169,21 +178,30 @@ button {
     height: 100vh;
     width: 100%;
 }
-.Posts__Container-left , .Posts__Container-right{
+
+.Posts__Container-left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 40%;
 
+}
+
+.Posts__Container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
 }
 
 .Posts {
     display: flex; 
     flex-direction: column;
     justify-content: center;
-    width: 70%; 
-    display: none;
+    width: 90%; 
+
 }
 
 .Controls{
@@ -196,7 +214,8 @@ footer {
     font-family: 'Quicksand', sans-serif;
     color: #b1b1b1;
     display: flex;
-    justify-content: flex-start;
+    margin-left: 50px; 
     width: 95%;
+    height: auto; 
 }
 
