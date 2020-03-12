@@ -20,33 +20,29 @@ app.get('/users/:id', async (req, res) => {
 
 app.post('/users', async (req, res) => {
     let user = await users.findOne({ email: req.body.email })
-    let userName = await users.findOne({username: req.body.username})
+    let emailSign = req.body.email
 
-    if(!userName){
-        if (!user) {
-            let newUser = {
-                name: req.body.name,
-                surname: req.body.surname,
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password
-            }
-            const documents = await users.insert(newUser);
-            res.json(documents)
-    
+    if (!user) {
+        let newUser = {
+            name: req.body.name,
+            surname: req.body.surname,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
         }
+        const documents = await users.insert(newUser);
+        res.json(documents)
 
-    }
-    else {
-        res.status(404)
-        res.send({error: 'error'})
+    } else {
+        console.log("error")
     }
 
 })
 
 
 //--Rodrigo post--//
-app.post("/add", (req, res) => {
+
+app.post("/post/add", (req, res) => {
     const newNote = {
         title: req.body.title,
         content: req.body.content,
@@ -57,16 +53,17 @@ app.post("/add", (req, res) => {
     });
 });
 
-app.post("/delete/:noteId", (req, res) => {
+app.post("/post/delete/:noteId", (req, res) => {
     notes.remove({ _id: req.params.noteId }, function (err, doc) {
         res.redirect("/");
     });
 });
 
-app.post("/update/:noteId", (req, res) => {
+app.post("/post/update/:noteId", (req, res) => {
     notes.update({ _id: req.params.noteId }, function (err, doc) {
         res.redirect("/");
     });
 });
+
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
