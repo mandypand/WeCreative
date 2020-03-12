@@ -1,9 +1,31 @@
 body {
-    background-image: url(./IMG/backgroundImgSignUp.jpg);
-    background-size: cover;
-    margin: 0;
+    margin: 0; 
+    background: #000000; 
+    font-family: 'Quicksand', sans-serif;
 }
 
+/* TITLE SIGNUP & LOGIN */
+.Container__Title {
+    display: flex;
+}
+
+.title,
+.title__sub {
+    font-family: 'Quicksand', sans-serif;
+    color: #B1B1B1;
+    font-weight: 900;
+    font-size: 15vh;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.title__sub {
+    font-weight: 100;
+    margin-left: 20px;
+}
+
+
+/* LOGIN */ 
 .wrap {
     display: flex;
     flex-direction: column;
@@ -12,8 +34,10 @@ body {
     height: 100vh;
 }
 
-.login{
+.login {
     background-image: url(IMG/backgroundImgLogIn.jpg);
+    background-size: cover;
+    margin: 0;
 }
 
 .link {
@@ -48,23 +72,14 @@ create-login-form{
     margin-top: 30px;
 }
 
-.Container__Title {
-    display: flex;
-}
 
-.title,
-.title__sub {
-    font-family: 'Quicksand', sans-serif;
-    color: #B1B1B1;
-    font-weight: 900;
-    font-size: 15vh;
-    text-align: center;
-    word-spacing: 10px;
-}
 
-.title__sub {
-    font-weight: 100;
-    margin-left: 20px;
+
+/* SIGNUP */ 
+.signup {
+    background-image: url(./IMG/backgroundImgSignUp.jpg);
+    background-size: cover;
+    margin: 0;
 }
 
 #create-user-form {
@@ -88,6 +103,65 @@ input[type=Submit] {
     padding: 1rem;
 }
 
+/* HIDE ERROR */
+.hide {
+    font-family: 'Quicksand', sans-serif;
+    color: red; 
+    text-align: center;
+}
+
+
+
+
+/* PROFILE */
+.Profile {
+    background-image: url(IMG/backgroundImgProfile.jpg);
+    background-size: cover;
+    margin: 0;
+}
+
+.Headline__Profile {
+    padding: 0px; 
+    margin-bottom: 0;
+    color: #B1B1B1;
+    font-weight: 100;
+    font-size: 80px;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.Paragraph__Profile {
+    font-size: 30px; 
+    font-weight: 100;
+    color: #B1B1B1;
+}
+
+/* FORM - PROFILE*/ 
+.post-form {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    width: 50%; 
+}
+
+.Input__Profile-title {
+    padding: 15px; 
+    margin: 10px; 
+}
+
+.Buttons {
+    flex-direction: row;
+    text-align: center;
+}
+
+button {
+    border-style: none;
+    font-size: 25px; 
+    width: 200px; 
+    padding: 10px; 
+    margin: 15px; 
+}
+
 footer {
     font-family: 'Quicksand', sans-serif;
     color: #b1b1b1;
@@ -95,11 +169,4 @@ footer {
     justify-content: flex-start;
     width: 95%;
 }
-
-.hide {
-    font-family: 'Quicksand', sans-serif;
-    color: red; 
-    text-align: center;
-}
-
 
