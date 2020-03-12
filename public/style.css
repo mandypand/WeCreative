@@ -31,7 +31,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
 }
 
 .login {
@@ -160,6 +159,37 @@ button {
     width: 200px; 
     padding: 10px; 
     margin: 15px; 
+}
+
+.Posts__Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.Posts__Container-left , .Posts__Container-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+
+}
+
+.Posts {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    width: 70%; 
+    display: none;
+}
+
+.Controls{
+    display: flex;
+    flex-direction: row;
+
 }
 
 footer {
