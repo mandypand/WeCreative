@@ -26,7 +26,7 @@ async function createUser(name, surname, username, email, password){
 }
 
 function initForm(){
-    const form = document.querySelector('#create-user-form')
+    const form = document.querySelector('#Form__Signup')
     form.addEventListener('submit', (event) => {
             event.preventDefault()
 
