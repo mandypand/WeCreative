@@ -72,11 +72,19 @@ function initForm(){
     })
 }
 
+function renderPages() {
+    // hide all pages
+    let pages = document.querySelectorAll('.page')
+    for(let i = 0; i < pages.length; i++){
+        pages[i].style.display = 'none'
+    }
+
+}
+
 async function run(){
     initForm()
     const users = await listUsers()
-    
+    renderPages()
 }
-
 run()
 
