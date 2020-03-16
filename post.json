@@ -48,19 +48,19 @@
             "author": "Cassandra Bastias"
         },
         {
-            "text": "Lorem ipsum dolor sit amet",
+            "title": "Lorem ipsum dolor sit amet",
             "type": "videopost",
             "file": "video",
             "author": "Bruna Pilota"
         },
         {
-            "text": "Lorem ipsum dolor sit amet",
+            "title": "Lorem ipsum dolor sit amet",
             "type": "videopost",
             "file": "video",
             "author": "Aram Naim"
         },
         {
-            "text": "Lorem ipsum dolor sit amet",
+            "title": "Lorem ipsum dolor sit amet",
             "type": "musicpost",
             "file": "audio",
             "author": "Camilla Gapparova"
