@@ -4,13 +4,14 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+
 /* TITLE SIGNUP & LOGIN */
 .Container__Title {
     display: flex;
 }
 
-.title,
-.title__sub {
+.Title__WeCreative,
+.Title__WeCreative-sub {
     font-family: 'Quicksand', sans-serif;
     color: #B1B1B1;
     font-weight: 900;
@@ -19,10 +20,11 @@ body {
     word-spacing: 10px;
 }
 
-.title__sub {
+.Title__WeCreative-sub {
     font-weight: 100;
     margin-left: 20px;
 }
+
 
 
 /* LOGIN */ 
@@ -33,7 +35,7 @@ body {
     align-items: center;
 }
 
-.login {
+.Login {
     background-image: url(IMG/backgroundImgLogIn.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -41,7 +43,15 @@ body {
     margin: 0;
 }
 
-.link {
+/* FORM LOGIN*/ 
+#Form__Login{
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.Form__Login-link {
     text-decoration: none;
     color: #5d5d5d;
     display: flex;
@@ -50,11 +60,12 @@ body {
     font-family: 'Quicksand', 'sans-serif';
 }
 
-#create-login-form{
-    display: flex;
-    flex-direction: column;
-    padding: 2.2rem;
-    background-color: rgba(0, 0, 0, 0.8);
+.Form__Login-button {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: #fefefe;
+    border-color: rgba(0, 0, 0, 0.0);
+    padding: 1rem;
+    margin-top: 30px;
 }
 
 input,
@@ -64,19 +75,10 @@ create-login-form{
     margin-top: 20px;
 }
 
-.buttom{
-    background-color: rgba(0, 0, 0, 0.0);
-    color: #fefefe;
-    border-color: rgba(0, 0, 0, 0.0);
-    padding: 1rem;
-    margin-top: 30px;
-}
-
-
 
 
 /* SIGNUP */ 
-.signup {
+.Signup {
     background-image: url(./IMG/backgroundImgSignUp.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -84,7 +86,7 @@ create-login-form{
     margin: 0;
 }
 
-#create-user-form {
+#Form__Signup {
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -128,7 +130,49 @@ input[type=Submit] {
     margin: 0;
 }
 
-.Headline__Profile {
+
+/* PROFILE LEFT SIDE */ 
+.Profile__Container-left {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.637);
+    height: 800px; 
+    align-items: center;
+    margin: 0; 
+    padding: 0; 
+    width: 40%;
+}
+
+.Profile__Left-headline {
+    color: #ffffff; 
+    font-size: 35px; 
+    font-weight: 100;
+}
+
+.Profile__Left-img {
+    height: 300px;
+    width: 300px; 
+}
+
+.Profile__Left-button {
+    border-style: none;
+    font-size: 20px; 
+    width: 400px; 
+    padding: 10px; 
+    margin: 15px; 
+}
+
+
+/* PROFILE RIGHT SIDE */
+.Profile__Container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+.Profile__Right-headline {
     padding: 0px; 
     margin-bottom: 0;
     color: #B1B1B1;
@@ -138,39 +182,33 @@ input[type=Submit] {
     word-spacing: 10px;
 }
 
-.Paragraph__Profile {
+.Profile__Right-paragraph {
     font-size: 30px; 
     font-weight: 100;
     color: #B1B1B1;
 }
 
 /* FORM - PROFILE*/ 
-.post-form {
+.Profile__Right-Form {
     display: flex; 
     flex-direction: column;
     justify-content: center;
     width: 90%; 
 }
 
-.Input__Profile-title {
+.Profile__Right-Form-inputTitle {
     padding: 15px; 
     margin: 10px; 
 }
 
-.Buttons {
+.Profile__Right-Form-button {
     flex-direction: row;
     text-align: center;
 }
 
-button {
-    border-style: none;
-    font-size: 25px; 
-    width: 200px; 
-    padding: 10px; 
-    margin: 15px; 
-}
 
-.Posts__Container {
+/* PROFILE - Right POST */
+.ProfilePost {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -179,37 +217,44 @@ button {
     width: 100%;
 }
 
-.Posts__Container-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 40%;
-
-}
-
 .Posts__Container-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-}
-
-.Posts {
     display: flex; 
     flex-direction: column;
     justify-content: center;
-    width: 90%; 
-
+    width: 55%; 
+    height: auto;
+    margin-right: 30px; 
+    background: #1B1B1B; 
 }
 
-.Controls{
-    display: flex;
-    flex-direction: row;
-
+.ProfilePost__Headline {
+    color: #ffffff; 
+    text-align: center;
+    font-size: 40px; 
+    font-weight: 100;
+    margin: 0; 
+    padding: 0; 
+    padding: 20px; 
 }
 
+.ProfilePost__Paragraph {
+    font-size: 20px; 
+    color: #ffffff; 
+    padding: 30px; 
+}
+
+/* ALL BUTTONS */ 
+button {
+    border-style: none;
+    font-size: 25px; 
+    width: 200px; 
+    padding: 10px; 
+    margin: 15px; 
+}
+
+
+
+/* FOOTER */
 footer {
     font-family: 'Quicksand', sans-serif;
     color: #b1b1b1;
