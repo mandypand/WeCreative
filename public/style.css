@@ -210,6 +210,30 @@ input[type=Submit] {
     color: #B1B1B1;
 }
 
+/* EDIT BUTTON */
+/* HIDE AND SHOW CLASS */ 
+
+.editChoice {
+    background: rgba(0, 0, 0, 0.637);
+    width: 500px; 
+}
+
+.ProfilePost__Post__Btn-container {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.ProfilePost__Btn {
+    height: 10px; 
+    width: 10px; 
+    border-radius: 100%;
+    margin: 2px; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    background: #999999; 
+}
 
 /* FORM - PROFILE*/
 
@@ -279,6 +303,49 @@ button {
     margin: 15px;
 }
 
+/* FEED */ 
+
+.Feed__headline {
+    text-align: center;
+    color: #ffffff; 
+    font-size: 100px; 
+    padding: 20px; 
+    font-weight: 100;
+}
+
+.FeedPosts__Container {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.FeedPost {
+    display: flex; 
+    width: 50%; 
+}
+
+.FeedPost__Container {
+    justify-content: center;
+    height: auto;
+    margin: 20px; 
+    background: #1B1B1B; 
+}
+
+.FeedPost__Headline {
+    color: #ffffff; 
+    text-align: center;
+    font-size: 40px; 
+    font-weight: 100;
+    margin: 0; 
+    padding: 0; 
+    padding: 20px; 
+}
+
+.FeedPost__Paragraph {
+    font-size: 20px; 
+    color: #ffffff; 
+    padding: 30px; 
+}
 
 /* FOOTER */
 
