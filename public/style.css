@@ -163,13 +163,13 @@ input[type=Submit] {
 
 .Profile__Left-img {
     height: auto;
-    width: 300px; 
+    width: 230px; 
 }
 
 .Profile__Left-button {
     border-style: none;
     font-size: 20px; 
-    width: 400px; 
+    width: 230px; 
     padding: 10px; 
     margin: 15px; 
 }
