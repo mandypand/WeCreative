@@ -76,8 +76,23 @@ function renderPages() {
     // hide all pages
     let pages = document.querySelectorAll('.page')
     for(let i = 0; i < pages.length; i++){
-        pages[i].style.display = 'block'
+        pages[i].style.display = 'none'
     }
+
+    switch(ulrKey) {
+        case '/':
+            pages[0].style.display = 'block'
+            break
+        case '/signup':
+            pages[1].style.display = 'block'
+            break
+        case 'login':
+            pages[2].style.display = 'block'
+            break
+        default:
+            pages[0].style.display = 'block';
+    }
+
 }
 
 async function run(){
