@@ -1,11 +1,12 @@
 body {
-    margin: 0; 
-    background: #000000; 
+    margin: 0;
+    background: #000000;
     font-family: 'Quicksand', sans-serif;
 }
 
 
 /* TITLE SIGNUP & LOGIN */
+
 .Container__Title {
     display: flex;
 }
@@ -26,9 +27,9 @@ body {
 }
 
 
+/* LOGIN */
 
-/* LOGIN */ 
-.Wrap  {
+.Wrap {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,8 +44,10 @@ body {
     margin: 0;
 }
 
-/* FORM LOGIN*/ 
-#Form__Login{
+
+/* FORM LOGIN*/
+
+#Form__Login {
     display: flex;
     flex-direction: column;
     padding: 2.2rem;
@@ -69,15 +72,15 @@ body {
 }
 
 input,
-create-login-form{
+create-login-form {
     font-family: 'Quicksand', sans-serif;
     font-size: 3vh;
     margin-top: 20px;
 }
 
 
+/* SIGNUP */
 
-/* SIGNUP */ 
 .Signup {
     background-image: url(./IMG/backgroundImgSignUp.jpg);
     background-size: cover;
@@ -107,17 +110,18 @@ input[type=Submit] {
     padding: 1rem;
 }
 
+
 /* HIDE ERROR */
+
 .hide {
     font-family: 'Quicksand', sans-serif;
-    color: red; 
+    color: red;
     text-align: center;
 }
 
 
-
-
 /* PROFILE */
+
 .Profile {
     display: flex;
     flex-direction: row;
@@ -128,65 +132,70 @@ input[type=Submit] {
     background-attachment: fixed;
     background-position: center center;
     margin: 0;
-   
 }
 
 
-/* PROFILE LEFT SIDE */ 
+/* PROFILE LEFT SIDE */
+
 .temporary {
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.637);
-    height: 800px; 
+    height: 800px;
     align-items: center;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
     width: 40%;
 }
+
 .Profile__Container-left {
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.637);
-    height: 800px; 
+    height: 800px;
     align-items: center;
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
     width: 40%;
     position: fixed;
 }
 
 .Profile__Left-headline {
-    color: #ffffff; 
-    font-size: 35px; 
+    color: #ffffff;
+    font-size: 35px;
     font-weight: 100;
 }
 
 .Profile__Left-img {
     height: auto;
-    width: 300px; 
+    width: 230px; 
 }
 
 .Profile__Left-button {
     border-style: none;
+    font-size: 20px;
+    width: 400px;
+    padding: 10px;
+    margin: 15px;
     font-size: 20px; 
-    width: 400px; 
+    width: 230px; 
     padding: 10px; 
     margin: 15px; 
 }
 
 
 /* PROFILE RIGHT SIDE */
+
 .Profile__Container-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 60%;
-   
 }
 
 .Profile__Right-headline {
-    padding: 0px; 
+    padding: 0px;
     margin-bottom: 0;
     color: #B1B1B1;
     font-weight: 100;
@@ -196,22 +205,24 @@ input[type=Submit] {
 }
 
 .Profile__Right-paragraph {
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: 100;
     color: #B1B1B1;
 }
 
-/* FORM - PROFILE*/ 
+
+/* FORM - PROFILE*/
+
 .Profile__Right-Form {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90%; 
+    width: 90%;
 }
 
 .Profile__Right-Form-inputTitle {
-    padding: 15px; 
-    margin: 10px; 
+    padding: 15px;
+    margin: 10px;
 }
 
 .Profile__Right-Form-button {
@@ -221,6 +232,7 @@ input[type=Submit] {
 
 
 /* PROFILE - Right POST */
+
 .ProfilePost {
     display: flex;
     flex-direction: row;
@@ -231,49 +243,51 @@ input[type=Submit] {
 }
 
 .Posts__Container-right {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 55%; 
+    width: 55%;
     height: auto;
-    margin-right: 30px; 
-    background: #1B1B1B; 
+    margin-right: 30px;
+    background: #1B1B1B;
 }
 
 .ProfilePost__Headline {
-    color: #ffffff; 
+    color: #ffffff;
     text-align: center;
-    font-size: 40px; 
+    font-size: 40px;
     font-weight: 100;
-    margin: 0; 
-    padding: 0; 
-    padding: 20px; 
+    margin: 0;
+    padding: 0;
+    padding: 20px;
 }
 
 .ProfilePost__Paragraph {
-    font-size: 20px; 
-    color: #ffffff; 
-    padding: 30px; 
+    font-size: 20px;
+    color: #ffffff;
+    padding: 30px;
 }
 
-/* ALL BUTTONS */ 
+
+/* ALL BUTTONS */
+
 button {
     border-style: none;
-    font-size: 25px; 
-    width: 200px; 
-    padding: 10px; 
-    margin: 15px; 
+    font-size: 25px;
+    width: 200px;
+    padding: 10px;
+    margin: 15px;
 }
-
 
 
 /* FOOTER */
+
 footer {
     font-family: 'Quicksand', sans-serif;
     color: #b1b1b1;
     display: flex;
-    margin-left: 50px; 
+    margin-left: 50px;
     width: 95%;
-    height: auto; 
+    height: auto;
 }
 

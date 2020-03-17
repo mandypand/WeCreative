@@ -1,8 +1,14 @@
 async function listUsers() {
+<<<<<<< HEAD
     const request = await fetch('http://localhost:8070/users/',
         {
             method: 'GET'
         })
+=======
+    const request = await fetch('http://localhost:8070/users/', {
+        method: 'GET'
+    })
+>>>>>>> d6a1d40bf9ce39264578c43791a2d6d19b563da6
     const data = await request.json()
     return data.responsiveJSON
 }
@@ -47,6 +53,7 @@ function initForm() {
             errorName.classList.toggle("hide")
             errorName.innerHTML = "At least two characters"
 
+<<<<<<< HEAD
         } if (surname.length < 2) {
             errorSurname.classList.toggle("hide")
             errorSurname.innerHTML = "At least two characters"
@@ -64,6 +71,30 @@ function initForm() {
             errorPassword.innerHTML = "At least two characters"
 
         } if (passwordAgain != password) {
+=======
+        }
+        if (surname.length < 2) {
+            errorSurname.classList.toggle("hide")
+            errorSurname.innerHTML = "At least two characters"
+
+        }
+        if (username.length < 2) {
+            errorUsername.classList.toggle("hide")
+            errorUsername.innerHTML = "At least two characters"
+
+        }
+        if (email.length < 2) {
+            errorEmail.classList.toggle("hide")
+            errorEmail.innerHTML = "Email alreaty exist"
+
+        }
+        if (password.length < 2) {
+            errorPassword.classList.toggle("hide")
+            errorPassword.innerHTML = "At least two characters"
+
+        }
+        if (passwordAgain != password) {
+>>>>>>> d6a1d40bf9ce39264578c43791a2d6d19b563da6
             errorPasswordRepeat.classList.toggle("hide")
             errorPasswordRepeat.innerHTML = "Password does not match!"
         } else {
@@ -74,9 +105,24 @@ function initForm() {
 
 function renderPages() {
     // hide all pages
+<<<<<<< HEAD
     let pages = document.querySelectorAll('.page')
     for (let i = 0; i < pages.length; i++) {
         pages[i].style.display = 'none'
+=======
+      switch(ulrKey) {
+        case '/':
+            pages[0].style.display = 'block'
+            break
+        case '/signup':
+            pages[1].style.display = 'block'
+            break
+        case 'login':
+            pages[2].style.display = 'block'
+            break
+        default:
+            pages[0].style.display = 'block';
+>>>>>>> d6a1d40bf9ce39264578c43791a2d6d19b563da6
     }
 
 }
@@ -87,4 +133,3 @@ async function run() {
     renderPages()
 }
 run()
-
