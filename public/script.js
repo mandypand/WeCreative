@@ -79,10 +79,14 @@ function initForm() {
 function renderPages() {
     // hide all pages
     let pages = document.querySelectorAll('.page')
+<<<<<<< HEAD
     for (let i = 0; i < pages.length; i++) {
         pages[i].style.display = 'none'
+=======
+    for(let i = 0; i < pages.length; i++){
+        pages[i].style.display = 'block'
+>>>>>>> 662f2a88b7dbb4ff455b459f03ba6c6acb164fb4
     }
-
 }
 
 async function run() {

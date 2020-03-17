@@ -168,15 +168,26 @@ input[type=Submit] {
 
 .Profile__Left-img {
     height: auto;
+<<<<<<< HEAD
     width: 300px;
+=======
+    width: 230px; 
+>>>>>>> 662f2a88b7dbb4ff455b459f03ba6c6acb164fb4
 }
 
 .Profile__Left-button {
     border-style: none;
+<<<<<<< HEAD
     font-size: 20px;
     width: 400px;
     padding: 10px;
     margin: 15px;
+=======
+    font-size: 20px; 
+    width: 230px; 
+    padding: 10px; 
+    margin: 15px; 
+>>>>>>> 662f2a88b7dbb4ff455b459f03ba6c6acb164fb4
 }
 
 
@@ -288,5 +299,11 @@ footer {
 }
 
 .page {
+<<<<<<< HEAD
     display: none
 }
+=======
+    display: none; 
+}
+
+>>>>>>> 662f2a88b7dbb4ff455b459f03ba6c6acb164fb4
