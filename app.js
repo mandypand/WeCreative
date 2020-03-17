@@ -52,9 +52,57 @@ app.post('/users', async (req, res) => {
 
 })
 
+app.get('/post', async (req, res) => {
+    const responsiveJSON = await post.find({})
+    res.json({ 'responsiveJSON': responsiveJSON })
+})
+
+
+app.get('/post/:id', async (req, res) => {
+    const documents = await post.findOne({ _id: req.params.id })
+    res.json(documents)
+})
+
+app.delete('/post/:id', async (req, res) => {
+    post.remove({ _id: req.params.id }, {
+        function(err, doc) {
+            res.json('/')
+        }
+    })
+})
+
+app.patch('/post/:id', async (req, res) => {
+    post.edit(
+        { _id: req.params.id },
+        { $set: { title: req.body.title } }
+    );
+    res.json(documents);
+});
+
+
+/*
+app.patch('/users/:id', (req, res) => {
+    post.edit({ _id: req.params.id }).update(req.body), function (err, doc) {
+        res.json(edit)
+    }
+})
+*/
+
+/*
+app.get('/post/:id', async (req, res) => {
+    const responsiveJSON = await post.find({ _id: parseInt(req.params.id) })
+    if (responsiveJSON.length > 0) {
+        res.json({ 'responsiveJSON': responsiveJSON })
+    } else {
+        res.status(404);
+        res.send({ error: 'Not Found' });
+    }
+})
+/*
 
 //--Rodrigo post--//
 
+/*
 app.post("/post/add", (req, res) => {
     const newNote = {
         title: req.body.title,
@@ -77,6 +125,7 @@ app.post("/post/update/:noteId", (req, res) => {
         res.redirect("/");
     });
 });
+*/
 
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
