@@ -80,6 +80,18 @@ window.onhashchange = function(){
 
 }
 
+
+const editBtn = document.querySelector(".ProfilePost__Post__Btn-container");
+
+editBtn.addEventListener('click', () => {
+    if (editBtn.classList.contains('editChoice')) {
+        editBtn.classList.remove('editChoice');
+        } else {
+        editBtn.classList.add('editChoice');
+        }
+    });
+
+
 function renderPages() {
 
        // hide all pages
