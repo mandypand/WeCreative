@@ -75,17 +75,27 @@ function initForm() {
         }
     })
 }
+window.onhashchange = function(){
+    renderPages(window.location.hash)
+
+}
 
 function renderPages() {
-    // hide all pages
+
+       // hide all pages
+       let pages = document.querySelectorAll('.page')
+       for(let i = 0; i < pages.length; i++){
+           pages[i].style.display = 'none'
+       }
+    
       switch(ulrKey) {
-        case '/':
+        case '':
             pages[0].style.display = 'block'
             break
-        case '/signup':
+        case '#signup':
             pages[1].style.display = 'block'
             break
-        case 'login':
+        case '#login':
             pages[2].style.display = 'block'
             break
         default:
