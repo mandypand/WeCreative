@@ -76,9 +76,8 @@ function renderPages() {
     // hide all pages
     let pages = document.querySelectorAll('.page')
     for(let i = 0; i < pages.length; i++){
-        pages[i].style.display = 'none'
+        pages[i].style.display = 'block'
     }
-
 }
 
 async function run(){
