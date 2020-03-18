@@ -75,7 +75,7 @@ function initForm() {
         }
     })
 }
-window.onhashchange = function(){
+window.onhashchange = function () {
     renderPages(window.location.hash)
 
 }
@@ -83,13 +83,13 @@ window.onhashchange = function(){
 
 function renderPages() {
 
-       // hide all pages
-       let pages = document.querySelectorAll('.page')
-       for(let i = 0; i < pages.length; i++){
-           pages[i].style.display = 'none'
-       }
-    
-      switch(ulrKey) {
+    // hide all pages
+    let pages = document.querySelectorAll('.page')
+    for (let i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none'
+    }
+
+    switch (ulrKey) {
         case '':
             pages[0].style.display = 'block'
             break
