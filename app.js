@@ -53,33 +53,6 @@ app.post('/users', async (req, res) => {
 
 })
 
-app.post('/delete/:post_Id', async (req, res) => {
-    post.remove({ _id: req.params.post_Id }, {
-        function(err, doc) {
-            res.redirect('/')
-        }
-    })
-})
-
-app.post('/delete/:post_Id', async (req, res) => {
-    post.remove({ _id: req.params.post_Id }, {
-        function(err, doc) {
-            res.redirect('/')
-        }
-    })
-})
-
-app.post('/post', async (req, res) => {
-    let newPost = {
-        title: req.body.title,
-        type: req.body.type,
-        file: req.body.audio,
-        author: req.body.author,
-    };
-    post.insert(newPost, function (err, doc) {
-        res.redict(newPost)
-    });
-});
 
 app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
@@ -98,6 +71,17 @@ app.delete('/post/:id', async (req, res) => {
     res.json(documents)
 })
 
+
+app.post('/post/create', async (req, res) => {
+    const documents = await post.insert({
+        title: req.body.title,
+        type: req.body.type,
+        file: req.body.file,
+        author: req.body.author
+    })
+    res.json({ "documents": documents })
+})
+
 app.patch('/post/:id', async (req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
         $set: {
@@ -110,19 +94,6 @@ app.patch('/post/:id', async (req, res) => {
     res.json({ "documents": documents })
 })
 
-/*
-app.patch('/post/:id', async (req, res) => {
-    const documents = await post.update({ _id: req.params.id }, {
-        $set: {
-            "post.title": req.body.title,
-            "post.type": req.body.type,
-            "post.file": req.body.file,
-            "post.author": req.body.author
-        }
-    })
-    res.json(documents)
-})
-*/
 
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
