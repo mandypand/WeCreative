@@ -26,6 +26,11 @@ async function createUser(name, surname, username, email, password) {
 
 function initForm() {
     const form = document.querySelector('#Form__Signup')
+    const pages = document.querySelectorAll('.page')
+       for(let i = 0; i < pages.length; i++){
+           pages[1].style.display = 'block'
+       }
+
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
@@ -72,42 +77,15 @@ function initForm() {
             errorPasswordRepeat.innerHTML = "Password does not match!"
         } else {
             createUser(name, surname, username, email, password)
+            pages[1].style.display = 'none'
+            pages[2].style.display = 'block'
         }
     })
-}
-window.onhashchange = function(){
-    renderPages(window.location.hash)
-
-}
-
-
-function renderPages() {
-
-       // hide all pages
-       let pages = document.querySelectorAll('.page')
-       for(let i = 0; i < pages.length; i++){
-           pages[i].style.display = 'none'
-       }
-    
-      switch(ulrKey) {
-        case '':
-            pages[0].style.display = 'block'
-            break
-        case '#signup':
-            pages[1].style.display = 'block'
-            break
-        case '#login':
-            pages[2].style.display = 'block'
-            break
-        default:
-            pages[0].style.display = 'block';
-    }
-
 }
 
 async function run() {
     initForm()
     const users = await listUsers()
-    renderPages()
+    
 }
 run()
