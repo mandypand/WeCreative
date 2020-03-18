@@ -5,6 +5,7 @@ const users = new Datastore({ filename: 'users.db', autoload: true })
 const post = new Datastore({ filename: 'post.db', autoload: true })
 const app = express()
 
+app.use( express.static('public'))
 app.use(cors())
 app.use(express.json())
 
