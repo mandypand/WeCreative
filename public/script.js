@@ -27,9 +27,9 @@ async function createUser(name, surname, username, email, password) {
 function initForm() {
     const form = document.querySelector('#Form__Signup')
     const pages = document.querySelectorAll('.page')
-       for(let i = 0; i < pages.length; i++){
-           pages[1].style.display = 'block'
-       }
+    for (let i = 0; i < pages.length; i++) {
+        pages[1].style.display = 'block'
+    }
 
     form.addEventListener('submit', (event) => {
         event.preventDefault()
@@ -85,6 +85,51 @@ function initForm() {
 
 async function run() {
     initForm()
-    const users = await listUsers() 
+    const users = await listUsers()
 }
 run()
+
+//----page function----//
+
+const newPost = document.querySelector('Profile__Container-right');
+const pages = document.querySelectorAll('.page')
+
+
+newPost.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log("Profile form has been submitted")
+});
+
+
+/*
+async function createPost(post) {
+    const request = await fetch('http://localhost:8070/post/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            content: content
+        })
+    })
+    const data = await request.json()
+    return data
+}
+
+function initNewPost() {
+    const form = document.querySelectorAll('.Profile__Right-Form-button');
+    const pages = document.querySelectorAll('.page')
+    if (document.initNewPost == "") {
+        alert("please enter some text first");
+    } else {
+        doncument.initNewPost.click();
+    }
+}
+
+
+async function init() {
+    initNewPost()
+    const posts = await newPost()
+}
+*/
