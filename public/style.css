@@ -26,9 +26,6 @@ body {
     margin-left: 20px;
 }
 
-/* .wrap {
-    height: 1000px; 
-} */
 /* LOGIN */
 
 .Wrap {
@@ -62,7 +59,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 90px;
-    font-family: 'Quicksand', 'sans-serif';
 }
 
 .Form__Login-button {
