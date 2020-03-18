@@ -52,37 +52,6 @@ app.post('/users', async (req, res) => {
 
 })
 
-///---------From Merge---------///
-/*
-app.get('/post', async (req, res) => {
-    const responsiveJSON = await post.find({})
-    res.json({ 'responsiveJSON': responsiveJSON })
-})
-
-
-app.get('/post/:id', async (req, res) => {
-    const documents = await post.findOne({ _id: req.params.id })
-    res.json(documents)
-})
-
-app.delete('/post/:id', async (req, res) => {
-    post.remove({ _id: req.params.id }, {
-        function(err, doc) {
-            res.json('/')
-        }
-    })
-})
-
-app.patch('/post/:id', async (req, res) => {
-    post.edit(
-        { _id: req.params.id },
-        { $set: { title: req.body.title } }
-    );
-    res.json(documents);
-});
-*/
-///---------From Merge---------///
-
 app.post('/delete/:post_Id', async (req, res) => {
     post.remove({ _id: req.params.post_Id }, {
         function(err, doc) {
@@ -90,6 +59,7 @@ app.post('/delete/:post_Id', async (req, res) => {
         }
     })
 })
+
 app.post('/delete/:post_Id', async (req, res) => {
     post.remove({ _id: req.params.post_Id }, {
         function(err, doc) {
