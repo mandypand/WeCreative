@@ -8,12 +8,12 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/users', async (req, res) => {
+app.get('/users', async(req, res) => {
     const responsiveJSON = await users.find({})
     res.json({ 'responsiveJSON': responsiveJSON })
 })
 
-app.get('/users/:id', async (req, res) => {
+app.get('/users/:id', async(req, res) => {
     const documents = await users.findOne({ _id: req.params.id })
     res.json(documents)
 })
@@ -31,7 +31,7 @@ app.get('/users/:id', async (req, res) => {
 // })
 
 
-app.post('/users', async (req, res) => {
+app.post('/users', async(req, res) => {
     let user = await users.findOne({ email: req.body.email })
     let emailSign = req.body.email
 
@@ -52,40 +52,36 @@ app.post('/users', async (req, res) => {
 
 })
 
-app.post('/delete/:post_Id', async (req, res) => {
-    post.remove({ _id: req.params.post_Id }, {
-        function(err, doc) {
-            res.redirect('/')
-        }
-    })
-})
 
-app.post('/delete/:post_Id', async (req, res) => {
-    post.remove({ _id: req.params.post_Id }, {
-        function(err, doc) {
-            res.redirect('/')
-        }
-    })
-})
-
-app.get('/post', async (req, res) => {
+app.get('/post', async(req, res) => {
     const responsiveJSON = await post.find({})
     res.json({ 'responsiveJSON': responsiveJSON })
 })
 
 
-app.get('/post/:id', async (req, res) => {
+app.get('/post/:id', async(req, res) => {
     const documents = await post.findOne({ _id: req.params.id })
     res.json(documents)
 })
 
 
-app.delete('/post/:id', async (req, res) => {
+app.delete('/post/:id', async(req, res) => {
     const documents = await post.remove({ _id: req.params.id })
     res.json(documents)
 })
 
-app.patch('/post/:id', async (req, res) => {
+
+app.post('/post/create', async(req, res) => {
+    const documents = await post.insert({
+        title: req.body.title,
+        type: req.body.type,
+        file: req.body.file,
+        author: req.body.author
+    })
+    res.json({ "documents": documents })
+})
+
+app.patch('/post/:id', async(req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
         $set: {
             title: req.body.title,
@@ -97,19 +93,6 @@ app.patch('/post/:id', async (req, res) => {
     res.json({ "documents": documents })
 })
 
-/*
-app.patch('/post/:id', async (req, res) => {
-    const documents = await post.update({ _id: req.params.id }, {
-        $set: {
-            "post.title": req.body.title,
-            "post.type": req.body.type,
-            "post.file": req.body.file,
-            "post.author": req.body.author
-        }
-    })
-    res.json(documents)
-})
-*/
 
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
