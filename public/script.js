@@ -81,13 +81,13 @@ window.onhashchange = function(){
 }
 
 
-const editBtn = document.querySelector(".ProfilePost__Post__Btn-container");
+const edit = document.querySelector(".Toggle__Edit");
 
-editBtn.addEventListener('click', () => {
-    if (editBtn.classList.contains('editChoice')) {
-        editBtn.classList.remove('editChoice');
+edit.addEventListener('click', () => {
+    if (edit.classList.contains('editChoice')) {
+        edit.classList.remove('editChoice');
         } else {
-        editBtn.classList.add('editChoice');
+        edit.classList.add('editChoice');
         }
     });
 

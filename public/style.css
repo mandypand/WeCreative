@@ -215,7 +215,8 @@ input[type=Submit] {
 
 .editChoice {
     background: rgba(0, 0, 0, 0.637);
-    width: 500px; 
+    height: 100px; 
+    width: 100px;
 }
 
 .ProfilePost__Post__Btn-container {
@@ -230,6 +231,7 @@ input[type=Submit] {
     width: 10px; 
     border-radius: 100%;
     margin: 2px; 
+    position: relative; 
     margin-top: 20px; 
     cursor: pointer; 
     background: #999999; 
