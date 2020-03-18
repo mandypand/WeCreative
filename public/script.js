@@ -85,7 +85,6 @@ function initForm() {
 
 async function run() {
     initForm()
-    const users = await listUsers()
-    
+    const users = await listUsers() 
 }
 run()
