@@ -5,7 +5,7 @@ const users = new Datastore({ filename: 'users.db', autoload: true })
 const post = new Datastore({ filename: 'post.db', autoload: true })
 const app = express()
 
-app.use( express.static('public'))
+app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
 
@@ -68,6 +68,18 @@ app.post('/delete/:post_Id', async (req, res) => {
         }
     })
 })
+
+app.post('/post', async (req, res) => {
+    let newPost = {
+        title: req.body.title,
+        type: req.body.type,
+        file: req.body.audio,
+        author: req.body.author,
+    };
+    post.insert(newPost, function (err, doc) {
+        res.redict(newPost)
+    });
+});
 
 app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
