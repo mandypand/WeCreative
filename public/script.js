@@ -81,17 +81,6 @@ window.onhashchange = function(){
 }
 
 
-const edit = document.querySelector(".Toggle__Edit");
-
-edit.addEventListener('click', () => {
-    if (edit.classList.contains('editChoice')) {
-        edit.classList.remove('editChoice');
-        } else {
-        edit.classList.add('editChoice');
-        }
-    });
-
-
 function renderPages() {
 
        // hide all pages
