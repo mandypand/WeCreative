@@ -211,10 +211,22 @@ input[type=Submit] {
 /* EDIT BUTTON */
 /* HIDE AND SHOW CLASS */ 
 
-.editChoice {
+.Toggle__Edit {
+    display: none; 
     background: rgba(0, 0, 0, 0.637);
-    height: 100px; 
-    width: 100px;
+    height: 150px;
+    margin: 10px; 
+    margin-left: 600px;
+    position: absolute;
+    z-index: 1;
+}
+
+.Toggle__Edit-paragraph {
+    color: #ffffff; 
+    cursor: pointer; 
+    font-size: 20px; 
+    padding: 5px; 
+    margin: 10px; 
 }
 
 .ProfilePost__Post__Btn-container {
@@ -222,6 +234,7 @@ input[type=Submit] {
     flex-direction: row; 
     justify-content: flex-end;
     margin-right: 20px;
+    position: relative;
 }
 
 .ProfilePost__Btn {
@@ -229,7 +242,6 @@ input[type=Submit] {
     width: 10px; 
     border-radius: 100%;
     margin: 2px; 
-    position: relative; 
     margin-top: 20px; 
     cursor: pointer; 
     background: #999999; 

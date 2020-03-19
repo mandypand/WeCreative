@@ -1,10 +1,9 @@
-const edit = document.querySelector(".Toggle__Edit");
-
-edit.addEventListener('click', () => {
-    console.log("hej")
-    if (edit.classList.contains('editChoice')) {
-        edit.classList.remove('editChoice');
+function hideShow() {
+    const edit = document.querySelector(".Toggle__Edit");
+        if (edit.style.display === "none") {
+            edit.style.display = "block";           
+            edit.querySelector("editText").innerHTML = "New text!";
         } else {
-        edit.classList.add('editChoice');
+            edit.style.display = "none";
         }
-    });
+    }
