@@ -19,17 +19,16 @@ app.get('/users/:id', async (req, res) => {
     res.json(documents)
 })
 
-// LOGIN
-// app.post('/login', async (req, res) =>{
-//     const user =  await users.findOne({email: req.body.email})
-//     if(user && user.password == req.body.password){
-//         res.status(200)
-//         res.send('sucess')
-//     } else {
-//         res.status(404)
-//         res.send({error: 'error'})
-//     }
-// })
+app.post('/users', async (req, res) =>{
+    const user =  await users.findOne({username: req.body.username})
+    if(user && user.password == req.body.password){
+        res.status(200)
+        res.send('sucess')
+    } else {
+        res.status(404)
+        res.send({error: 'error'})
+    }
+})
 
 
 app.post('/users', async (req, res) => {
