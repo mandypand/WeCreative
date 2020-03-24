@@ -374,4 +374,16 @@ footer {
     display: none;
 }
 
+.TemporaryNav{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    cursor: pointer;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: lightgoldenrodyellow;
+}
+
 
