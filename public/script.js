@@ -90,7 +90,7 @@ async function run() {
 run()
 
 //----page function----//
-
+/*
 const newPost = document.querySelector('Profile__Container-right');
 const pages = document.querySelectorAll('.page')
 
@@ -99,7 +99,7 @@ newPost.addEventListener('submit', (event) => {
     event.preventDefault();
     console.log("Profile form has been submitted")
 });
-
+*/
 
 /*
 async function createPost(post) {
