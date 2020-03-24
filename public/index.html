@@ -8,75 +8,76 @@
 </head>
 <body>
     <main class="wrap">
+        <nav class="TemporaryNav"></nav>
     <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
     <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
-    <div class="Wrap__Profile">
-        <div class="page" id="profile">
-            <section class="Profile">
-                <div class ="temorary">
-    
-                </div>
-                <aside class="Profile__Container-left">
-                    <h1 class="Profile__Left-headline"> carolineolby </h1>
-                    <img class="Profile__Left-img" src="IMG/profilepicture.jpg" alt="profilepicture">
-                    <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
-                    <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
-                    <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
-                    <button class="Profile__Left-button" type="submit" value="publish"> upload music </button>
-                </aside>
-                <article class="Profile__Container-right">
-                    <h1 class="Profile__Right-headline"> PROFILE</h1>
-                    <p class="Profile__Right-paragraph">Whats on your mind today?</p>
-                    <form action="/add" method="POST" class="Profile__Right-Form">
-                        <input class="Profile__Right-Form-inputTitle" type="text" name="title" placeholder="Title">
-                        <textarea name="content" cols="30" rows="25"></textarea>
-                        <div class="Profile__Right-Form-button">
-                            <button type="submit" value="publish"> publish </button>
-                        </div>
-                    </form>
-                </article>
-            </section>
-            <section class="ProfilePost">
-                <article> </article>
-                <article class="Posts__Container-right">
-                    <div class="ProfilePost__Post">
-                        <div class="ProfilePost__Post__Btn-container">
-                            <div class="ProfilePost__Btn" onclick="hideShow()"></div>
-                            <div class="ProfilePost__Btn" onclick="hideShow()"></div>
-                            <div class="ProfilePost__Btn" onclick="hideShow()"></div>
-                        </div>
-                        <div class="Toggle__Edit">
-                            <p class="Toggle__Edit-paragraph"> Edit </p>
-                            <p class="Toggle__Edit-paragraph"> Delete </p>
-                        </div>
-                        <h1 class="ProfilePost__Headline"> Title </h1>
-                        <p class="ProfilePost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                            Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                            Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                            Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
+        <div class="page-1 hidden" id="profile">
+            <div class="Wrap__Profile">
+                <section class="Profile">
+                    <div class ="temorary">
+        
                     </div>
-                    <div class="ProfilePost__Post-butto__Container">
-                        <button class="icon-btn edit-btn">
-                            <i class="material-icons">update</i>
-                        </button>
-                        <button class="icon-btn edit-btn">
-                            <i class="material-icons">edit</i>
-                        </button>
-                        <button class="icon-btn edit-btn">
-                            <i class="material-icons">remove</i>
-                        </button>
-                    </div>
-                </article>
-            </section>
+                    <aside class="Profile__Container-left">
+                        <h1 class="Profile__Left-headline"> carolineolby </h1>
+                        <img class="Profile__Left-img" src="IMG/profilepicture.jpg" alt="profilepicture">
+                        <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
+                        <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
+                        <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
+                        <button class="Profile__Left-button" type="submit" value="publish"> upload music </button>
+                    </aside>
+                    <article class="Profile__Container-right">
+                        <h1 class="Profile__Right-headline"> PROFILE</h1>
+                        <p class="Profile__Right-paragraph">Whats on your mind today?</p>
+                        <form action="/add" method="POST" class="Profile__Right-Form">
+                            <input class="Profile__Right-Form-inputTitle" type="text" name="title" placeholder="Title">
+                            <textarea name="content" cols="30" rows="25"></textarea>
+                            <div class="Profile__Right-Form-button">
+                                <button type="submit" value="publish"> publish </button>
+                            </div>
+                        </form>
+                    </article>
+                </section>
+                <section class="ProfilePost">
+                    <article> </article>
+                    <article class="Posts__Container-right">
+                        <div class="ProfilePost__Post">
+                            <div class="ProfilePost__Post__Btn-container">
+                                <div class="ProfilePost__Btn" onclick="hideShow()"></div>
+                                <div class="ProfilePost__Btn" onclick="hideShow()"></div>
+                                <div class="ProfilePost__Btn" onclick="hideShow()"></div>
+                            </div>
+                            <div class="Toggle__Edit">
+                                <p class="Toggle__Edit-paragraph"> Edit </p>
+                                <p class="Toggle__Edit-paragraph"> Delete </p>
+                            </div>
+                            <h1 class="ProfilePost__Headline"> Title </h1>
+                            <p class="ProfilePost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
+                                Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
+                                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
+                                Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
+                                Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
+                        </div>
+                        <div class="ProfilePost__Post-butto__Container">
+                            <button class="icon-btn edit-btn">
+                                <i class="material-icons">update</i>
+                            </button>
+                            <button class="icon-btn edit-btn">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button class="icon-btn edit-btn">
+                                <i class="material-icons">remove</i>
+                            </button>
+                        </div>
+                    </article>
+                </section>
+            </div>
         </div>
-    </div>
     <!--*************END PROFILE PAGE************************************************************************************ -->
     <!--*************END PROFILE PAGE************************************************************************************ -->
 
     <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
     <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
-    <div class="page Signup" id="signup">
+    <div class="page-2 Signup Login hidden" id="signup">
         <div class="Wrap">
             <div class="Container__Title">
                 <h1 class="Title__WeCreative">
@@ -117,7 +118,7 @@
 
     <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
      <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
-     <div class="page Login" id="login">
+     <div class="page-3 Login hidden" id="login">
         <div class="Wrap">
             <div class="Container__Title">
                 <h1 class="Title__WeCreative">
@@ -131,7 +132,7 @@
                 <input type="text" name="name" placeholder="username" class="name">
                 <input type="password" value="password" placeholder="password" class="password">
                 <input class="Form__Login-button" type="submit" value="LOG IN">
-                <a class="Form__Login-link" href="singup.html">Sign Up</a>
+                <a class="Form__Login-link" href="file:///Users/carolineolby/Desktop/projekt_nedb/WeCreative-nedb/public/index.html">Sign Up</a>
             </form>
         </div>
         <footer>
@@ -143,7 +144,7 @@
 
      <!--*************BEGIN FEED PAGE************************************************************************************ -->
      <!--*************BEGIN FEED PAGE************************************************************************************ -->
-     <div class="page" id="feed">
+     <div class="page-4 hidden" id="feed">
         <h1 class="Feed__headline"> carolineolby </h1>
         <div class="FeedPosts__Container">
             <section class="FeedPost">

@@ -24,13 +24,54 @@ async function createUser(name, surname, username, email, password) {
     return data
 }
 
+// all our pages
+const pages = {
+    'page-1': {
+        element: document.querySelector('.page-1'),
+        title: 'page-1'
+    },
+
+    'page-2': {
+        element: document.querySelector('.page-2'),
+        title: 'page-2'
+    },
+    'page-3': {
+        element: document.querySelector('.page-3'),
+        title: 'page-3'
+    },
+    'page-4': {
+        element: document.querySelector('.page-4'),
+        title: 'page-4'
+    },
+}
+
+function initNav() {
+    const keys = Object.keys(pages)
+    const nav = document.querySelector("nav")
+    for (let pageKey of keys) {
+        const pageObject = pages[pageKey]
+        let anchor = document.createElement("a")
+        anchor.addEventListener("click", () => {
+            renderView(pageKey)
+        })
+        anchor.innerText = pageObject.title
+        nav.append(anchor)
+    }
+}
+
+function renderView(page) {
+    if (!pages[page]) { throw new Error('Page not found') }
+    const pageObjects = Object.values(pages)
+    for (let page of pageObjects) {
+        page.element.classList.add("hidden")
+    }
+    pages[page].element.classList.remove("hidden")
+}
+
+
+
 function initForm() {
     const form = document.querySelector('#Form__Signup')
-    const pages = document.querySelectorAll('.page')
-    for (let i = 0; i < pages.length; i++) {
-        pages[1].style.display = 'block'
-    }
-
     form.addEventListener('submit', (event) => {
         event.preventDefault()
 
@@ -77,8 +118,6 @@ function initForm() {
             errorPasswordRepeat.innerHTML = "Password does not match!"
         } else {
             createUser(name, surname, username, email, password)
-            pages[1].style.display = 'none'
-            pages[2].style.display = 'block'
         }
     })
 }
@@ -86,20 +125,21 @@ function initForm() {
 async function run() {
     initForm()
     const users = await listUsers()
+    initNav()
 }
 run()
 
 //----page function----//
-/*
-const newPost = document.querySelector('Profile__Container-right');
-const pages = document.querySelectorAll('.page')
+
+// const newPost = document.querySelector('Profile__Container-right');
+// const pages = document.querySelectorAll('.page')
 
 
-newPost.addEventListener('submit', (event) => {
-    event.preventDefault();
-    console.log("Profile form has been submitted")
-});
-*/
+// newPost.addEventListener('submit', (event) => {
+//     event.preventDefault();
+//     console.log("Profile form has been submitted")
+// });
+
 
 /*
 async function createPost(post) {
