@@ -129,6 +129,12 @@ async function run() {
 }
 run()
 
+// UPLOAD PROFILEPICTURE 
+let loadFile = function(event) {
+    let image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+};
+
 //----page function----//
 
 // const newPost = document.querySelector('Profile__Container-right');
