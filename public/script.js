@@ -45,10 +45,10 @@ const pages = {
     },
 }
 
-function initNav(){
+function initNav() {
     const keys = Object.keys(pages)
     const nav = document.querySelector("nav")
-    for(let pageKey of keys){
+    for (let pageKey of keys) {
         const pageObject = pages[pageKey]
         let anchor = document.createElement("a")
         anchor.addEventListener("click", () => {
@@ -59,16 +59,34 @@ function initNav(){
     }
 }
 
-function renderView(page){
-    if(!pages[page]){ throw new Error('Page not found')}
-    const pageObjects= Object.values(pages)
-    for(let page of pageObjects){
+function renderView(page) {
+    if (!pages[page]) { throw new Error('Page not found') }
+    const pageObjects = Object.values(pages)
+    for (let page of pageObjects) {
         page.element.classList.add("hidden")
     }
     pages[page].element.classList.remove("hidden")
 }
 
+async function initLoginForm(){
+    const form = document.querySelector('#Form__Login')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const username = form.querySelector('.name').value
+        const password = form.querySelector('.password').value
 
+        if(status == 200){
+            if(username && password < 2) {
+                console.log('hello')
+            }
+    
+        } else {
+            console.log('sorry')
+        }
+
+    })
+   
+}
 
 function initForm() {
     const form = document.querySelector('#Form__Signup')

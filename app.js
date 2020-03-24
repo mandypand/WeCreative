@@ -19,17 +19,16 @@ app.get('/users/:id', async (req, res) => {
     res.json(documents)
 })
 
-// LOGIN
-// app.post('/login', async (req, res) =>{
-//     const user =  await users.findOne({email: req.body.email})
-//     if(user && user.password == req.body.password){
-//         res.status(200)
-//         res.send('sucess')
-//     } else {
-//         res.status(404)
-//         res.send({error: 'error'})
-//     }
-// })
+app.post('/users', async (req, res) =>{
+    const user =  await users.findOne({username: req.body.username})
+    if(user && user.password == req.body.password){
+        res.status(200)
+        res.send('sucess')
+    } else {
+        res.status(404)
+        res.send({error: 'error'})
+    }
+})
 
 
 app.post('/users', async (req, res) => {
@@ -71,6 +70,25 @@ app.delete('/post/:id', async (req, res) => {
     res.json(documents)
 })
 
+/*
+app.get('/add', async (req, res) => {
+    const responsiveJSON = await post.find({})
+    res.json({ 'responsiveJSON': responsiveJSON })
+    res.redirect('add');
+})
+*/
+
+/*
+app.post('/add', (req, res) => {
+    const newNote = {
+        title: req.body.title,
+        content: req.body.content
+    };
+    post.insert(newNote, function (err, doc) {
+        res.redirect('/page')
+    })
+})
+*/
 
 app.post('/post/create', async (req, res) => {
     const documents = await post.insert({
@@ -81,6 +99,7 @@ app.post('/post/create', async (req, res) => {
     })
     res.json({ "documents": documents })
 })
+
 
 app.patch('/post/:id', async (req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
