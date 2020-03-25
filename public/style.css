@@ -164,9 +164,36 @@ input[type=Submit] {
     font-weight: 100;
 }
 
-.Profile__Left-img {
-    height: auto;
+/* UPLOAD PROFILEPICTURE */
+.Profile__Form-uploadImg {
+    display: flex; 
+    flex-direction: column;
+    margin-bottom: 20px; 
+}
+
+input[type="file"] {
+     display: none;  
+}
+
+label {
+    display: flex; 
+    flex-direction: column;
+    cursor: pointer;
+    display: inline-block; 
+    color: white; 
+    text-align: center;
+    background: rgba(43, 43, 43, 0.637);
+}
+
+.Insert-Image__Container {
     width: 230px; 
+    height: 160px; 
+}
+
+.Insert__Img {
+    z-index: 1;
+    width: 230px; 
+    height: 160px; 
 }
 
 .Profile__Left-button {

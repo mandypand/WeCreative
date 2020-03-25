@@ -68,7 +68,25 @@ function renderView(page) {
     pages[page].element.classList.remove("hidden")
 }
 
+async function initLoginForm(){
+    const form = document.querySelector('#Form__Login')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const username = form.querySelector('.name').value
+        const password = form.querySelector('.password').value
 
+        if(status == 200){
+            if(username && password < 2) {
+                console.log('hello')
+            }
+    
+        } else {
+            console.log('sorry')
+        }
+
+    })
+   
+}
 
 function initForm() {
     const form = document.querySelector('#Form__Signup')
@@ -128,6 +146,12 @@ async function run() {
     initNav()
 }
 run()
+
+// UPLOAD PROFILEPICTURE 
+let loadFile = function(event) {
+    let image = document.getElementById('output');
+    image.src = URL.createObjectURL(event.target.files[0]);
+};
 
 //----page function----//
 

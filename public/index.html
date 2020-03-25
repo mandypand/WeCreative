@@ -21,7 +21,12 @@
                     </div>
                     <aside class="Profile__Container-left">
                         <h1 class="Profile__Left-headline"> carolineolby </h1>
-                        <img class="Profile__Left-img" src="IMG/profilepicture.jpg" alt="profilepicture">
+                        <form class="Profile__Form-uploadImg" action="#">
+                            <input type="file" id="file" name="img" accept="image/*" multiple="false" onchange="loadFile(event)">
+                            <label for="file">
+                                <div class="Insert-Image__Container"><img class="Insert__Img" id="output" /></div>
+                            </label>
+                        </form>
                         <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
