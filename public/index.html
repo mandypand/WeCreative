@@ -21,12 +21,12 @@
                     </div>
                     <aside class="Profile__Container-left">
                         <h1 class="Profile__Left-headline"> carolineolby </h1>
-                        <form class="Profile__Form-uploadImg" action="#">
-                            <input type="file" id="file" name="img" accept="image/*" multiple="false" onchange="loadFile(event)">
-                            <label for="file">
-                                <div class="Insert-Image__Container"><img class="Insert__Img" id="output" /></div>
+                        <div class="Profile__Upload-profilePicture__Container" onclick="toggleDefaultUpload()">
+                            <input class="Profile__Upload-profilePicture" type="file" id="uploadPhoto" accept="image/*" multiple="false" hidden="hidden" onclick="hideShowProfilePicture()" />
+                            <label class="Profile__Upload-profilePicture-Custom" for="uploadPhoto">
+                                <div class="Insert-profilePicture__Container"><img class="Profile__Profile-Picture UserProfilePicture"></div>
                             </label>
-                        </form>
+                        </div>
                         <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
@@ -70,18 +70,6 @@
                                 euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
                                 Nullam cursus lacinia erat.
                             </p>
-                        </div>
-                        <div class="ProfilePost__Post-butto__Container">
-                            <button class="icon-btn edit-btn">
-                                <i class="material-icons">update</i>
-                            </button>
-                            <button class="icon-btn edit-btn">
-                                <i class="material-icons">edit</i>
-                            </button>
-                            <button class="icon-btn edit-btn">
-                                <i class="material-icons">remove</i>
-                            </button>
-
                         </div>
                     </article>
                 </section>

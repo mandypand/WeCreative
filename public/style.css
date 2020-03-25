@@ -165,17 +165,24 @@ input[type=Submit] {
 }
 
 /* UPLOAD PROFILEPICTURE */
+
 .Profile__Form-uploadImg {
     display: flex; 
     flex-direction: column;
     margin-bottom: 20px; 
 }
 
-input[type="file"] {
-     display: none;  
+.Profile__Upload-profilePicture {
+ padding: 10px; 
 }
 
-label {
+
+input[type="file"] {
+     text-align: center;
+     color: white; 
+}
+
+.Profile__Upload-profilePicture-Custom {
     display: flex; 
     flex-direction: column;
     cursor: pointer;
@@ -185,17 +192,17 @@ label {
     background: rgba(43, 43, 43, 0.637);
 }
 
-.Insert-Image__Container {
+.Insert-profilePicture__Container {
     width: 230px; 
     height: 160px; 
 }
 
-.Insert__Img {
-    z-index: 1;
+.UserProfilePicture {
     width: 230px; 
     height: 160px; 
 }
 
+/* UPLOAD MUSIC */ 
 .Profile__Left-button {
     border-style: none;
     font-size: 20px;

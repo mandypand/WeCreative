@@ -148,10 +148,33 @@ async function run() {
 run()
 
 // UPLOAD PROFILEPICTURE 
-let loadFile = function(event) {
-    let image = document.getElementById('output');
-    image.src = URL.createObjectURL(event.target.files[0]);
-};
+function toggleDefaultUpload() {
+    const realUpload = document.querySelector(".Profile__Upload-profilePicture")
+    const customUpload = document.querySelector(".Profile__Upload-profilePicture-Custom")
+    
+    customUpload.addEventListener('click', function() {
+        realUpload.click(); 
+    })
+}
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
+        if  (this.files && this.files[0]) {
+            var img = document.querySelector(".UserProfilePicture"); 
+            img.src = window.URL.createObjectURL(this.files[0]); 
+            img.onload = imageIsLoaded; 
+        }
+    });
+});
+
+// EDIT & DELETE-BUTTON -  PROFILEPAGE 
+function hideShow() {
+    const edit = document.querySelector(".Toggle__Edit");
+    if (edit.style.display === "none") {
+        edit.style.display = "block";
+    } else {
+        edit.style.display = "none";
+    }
+}
 
 //----page function----//
 
@@ -199,15 +222,15 @@ async function init() {
 */
 
 
+// UPLOAD MP3
+// const loadFile = function(event) {
 
-const loadFile = function(event) {
+//     let mp3 = document.getElementById("output");
+//     mp3.src = URL.createObjectURL(event.target.files[0]);
 
-    let mp3 = document.getElementById("output");
-    mp3.src = URL.createObjectURL(event.target.files[0]);
-
-    if (mp3.style.display === "block") {
-        mp3.style.display === "block";
-    } else {
-        mp3.style.display = "grid";
-    }
-}
+//     if (mp3.style.display === "block") {
+//         mp3.style.display === "block";
+//     } else {
+//         mp3.style.display = "grid";
+//     }
+// }
