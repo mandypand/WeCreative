@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Creative |</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="wrap">
         <nav class="TemporaryNav"></nav>
-    <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
-    <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
+        <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
+        <!--*************BEGIN PROFILE PAGE************************************************************************************ -->
         <div class="page-1 hidden" id="profile">
             <div class="Wrap__Profile">
                 <section class="Profile">
-                    <div class ="temorary">
-        
+                    <div class="temorary">
+
                     </div>
                     <aside class="Profile__Container-left">
                         <h1 class="Profile__Left-headline"> carolineolby </h1>
@@ -23,14 +25,21 @@
                         <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
-                        <button class="Profile__Left-button" type="submit" value="publish"> upload music </button>
+                        <!--Audio upload-->
+                        <input type="file" accept="audio/*" name="audio" id="file" onchange="loadFile(event)" style="display: none;">
+                        <button class="Profile__Left-button"><label for="file" style="cursor: pointer;">Upload mp3</label></button>
+                        <!--Audio upload-->
                     </aside>
                     <article class="Profile__Container-right">
                         <h1 class="Profile__Right-headline"> PROFILE</h1>
+
                         <p class="Profile__Right-paragraph">Whats on your mind today?</p>
                         <form action="/add" method="POST" class="Profile__Right-Form">
+
                             <input class="Profile__Right-Form-inputTitle" type="text" name="title" placeholder="Title">
-                            <textarea name="content" cols="30" rows="25"></textarea>
+                            <textarea name="content" cols="30" rows="25">
+                            </textarea>
+                            <audio id="output" controls src="" style="display: none;"></audio>
                             <div class="Profile__Right-Form-button">
                                 <button type="submit" value="publish"> publish </button>
                             </div>
@@ -51,11 +60,11 @@
                                 <p class="Toggle__Edit-paragraph"> Delete </p>
                             </div>
                             <h1 class="ProfilePost__Headline"> Title </h1>
-                            <p class="ProfilePost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                                Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                                Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                                Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
+                            <p class="ProfilePost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla. Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
+                                tincidunt et, tincidunt eget, semper nec, quam. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non,
+                                euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
+                                Nullam cursus lacinia erat.
+                            </p>
                         </div>
                         <div class="ProfilePost__Post-butto__Container">
                             <button class="icon-btn edit-btn">
@@ -67,138 +76,137 @@
                             <button class="icon-btn edit-btn">
                                 <i class="material-icons">remove</i>
                             </button>
+
                         </div>
                     </article>
                 </section>
             </div>
         </div>
-    <!--*************END PROFILE PAGE************************************************************************************ -->
-    <!--*************END PROFILE PAGE************************************************************************************ -->
 
-    <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
-    <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
-    <div class="page-2 Signup Login hidden" id="signup">
-        <div class="Wrap">
-            <div class="Container__Title">
-                <h1 class="Title__WeCreative">
-                    WE
-                </h1>
-                <h1 class="Title__WeCreative-sub">
-                    creative
-                </h1>
+        <!--*************END PROFILE PAGE************************************************************************************ -->
+        <!--*************END PROFILE PAGE************************************************************************************ -->
+
+        <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
+        <!--*************BEGIN SIGNUP PAGE************************************************************************************ -->
+        <div class="page-2 Signup Login hidden" id="signup">
+            <div class="Wrap">
+                <div class="Container__Title">
+                    <h1 class="Title__WeCreative">
+                        WE
+                    </h1>
+                    <h1 class="Title__WeCreative-sub">
+                        creative
+                    </h1>
+                </div>
+                <form id="Form__Signup">
+                    <input type="text" name="name" placeholder="name" class="name">
+                    <div class="Error__Name"></div>
+
+                    <input type="text" name="surname" placeholder="surname" class="surname">
+                    <div class="Error__Surname"></div>
+
+                    <input type="text" name="email" placeholder="email" class="email">
+                    <div class="Error__Email"></div>
+
+                    <input type="text" name="username" placeholder="username" class="username">
+                    <div class="Error__Username"></div>
+
+                    <input type="password" name="password" placeholder="password" class="password">
+                    <div class="Error__Password"></div>
+
+                    <input type="password" name="passwordAgain" placeholder="password again" class="passwordAgain">
+                    <div class="Error__Password__Repeat"></div>
+
+                    <input type="submit" value="SIGN UP">
+                </form>
             </div>
-            <form id="Form__Signup">
-                <input type="text" name="name" placeholder="name" class="name">
-                <div class="Error__Name"></div>
-    
-                <input type="text" name="surname" placeholder="surname" class="surname">
-                <div class="Error__Surname"></div>
-    
-                <input type="text" name="email" placeholder="email" class="email">
-                <div class="Error__Email"></div>
-    
-                <input type="text" name="username" placeholder="username" class="username">
-                <div class="Error__Username"></div>
-    
-                <input type="password" name="password" placeholder="password" class="password">
-                <div class="Error__Password"></div>
-    
-                <input type="password" name="passwordAgain" placeholder="password again" class="passwordAgain">
-                <div class="Error__Password__Repeat"></div>
-    
-                <input type="submit" value="SIGN UP">
-            </form>
+            <footer>
+                <p>WE creative &copy; 2020</p>
+            </footer>
         </div>
-        <footer>
-            <p>WE creative &copy; 2020</p>
-        </footer>
-    </div>
-     <!--*************END SIGNUP PAGE************************************************************************************ -->
-    <!--*************END SIGNUP PAGE************************************************************************************ -->
+        <!--*************END SIGNUP PAGE************************************************************************************ -->
+        <!--*************END SIGNUP PAGE************************************************************************************ -->
 
-    <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
-     <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
-     <div class="page-3 Login hidden" id="login">
-        <div class="Wrap">
-            <div class="Container__Title">
-                <h1 class="Title__WeCreative">
-                    WE
-                </h1>
-                <h1 class="Title__WeCreative-sub">
-                    creative
-                </h1>
+        <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
+        <!--*************BEGIN LOGIN PAGE************************************************************************************ -->
+        <div class="page-3 Login hidden" id="login">
+            <div class="Wrap">
+                <div class="Container__Title">
+                    <h1 class="Title__WeCreative">
+                        WE
+                    </h1>
+                    <h1 class="Title__WeCreative-sub">
+                        creative
+                    </h1>
+                </div>
+                <form id="Form__Login">
+                    <input type="text" name="name" placeholder="username" class="name">
+                    <input type="password" value="password" placeholder="password" class="password">
+                    <input class="Form__Login-button" type="submit" value="LOG IN">
+                    <a class="Form__Login-link" href="file:///Users/carolineolby/Desktop/projekt_nedb/WeCreative-nedb/public/index.html">Sign Up</a>
+                </form>
             </div>
-            <form id="Form__Login">
-                <input type="text" name="name" placeholder="username" class="name">
-                <input type="password" value="password" placeholder="password" class="password">
-                <input class="Form__Login-button" type="submit" value="LOG IN">
-                <a class="Form__Login-link" href="file:///Users/carolineolby/Desktop/projekt_nedb/WeCreative-nedb/public/index.html">Sign Up</a>
-            </form>
+            <footer>
+                <p>WE creative &copy; 2020</p>
+            </footer>
         </div>
-        <footer>
-            <p>WE creative &copy; 2020</p>
-        </footer>
-    </div>
-     <!--*************END LOGIN PAGE************************************************************************************ -->
-     <!--*************END LOGIN PAGE************************************************************************************ -->
+        <!--*************END LOGIN PAGE************************************************************************************ -->
+        <!--*************END LOGIN PAGE************************************************************************************ -->
 
-     <!--*************BEGIN FEED PAGE************************************************************************************ -->
-     <!--*************BEGIN FEED PAGE************************************************************************************ -->
-     <div class="page-4 hidden" id="feed">
-        <h1 class="Feed__headline"> carolineolby </h1>
-        <div class="FeedPosts__Container">
-            <section class="FeedPost">
-                <article class="FeedPost__Container">
-                    <h1 class="FeedPost__Headline"> Title </h1>
-                    <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                        Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                        Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                        Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
-                </article>
-            </section>
-            <section class="FeedPost">
-                <article class="FeedPost__Container">
-                    <h1 class="FeedPost__Headline"> Title </h1>
-                    <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                        Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                        Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                        Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
-                </article>
-            </section>
-            <section class="FeedPost">
-                <article class="FeedPost__Container">
-                    <h1 class="FeedPost__Headline"> Title </h1>
-                    <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                        Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                        Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                        Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
-                </article>
-            </section>
-            <section class="FeedPost">
-                <article class="FeedPost__Container">
-                    <h1 class="FeedPost__Headline"> Title </h1>
-                    <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla.
-                        Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam.
-                        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo.
-                        Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl.
-                        Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam cursus lacinia erat.</p>
-                </article>
-            </section>
+        <!--*************BEGIN FEED PAGE************************************************************************************ -->
+        <!--*************BEGIN FEED PAGE************************************************************************************ -->
+        <div class="page-4 hidden" id="feed">
+            <h1 class="Feed__headline"> carolineolby </h1>
+            <div class="FeedPosts__Container">
+                <section class="FeedPost">
+                    <article class="FeedPost__Container">
+                        <h1 class="FeedPost__Headline"> Title </h1>
+                        <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla. Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
+                            tincidunt et, tincidunt eget, semper nec, quam. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non,
+                            euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
+                            Nullam cursus lacinia erat.</p>
+                    </article>
+                </section>
+                <section class="FeedPost">
+                    <article class="FeedPost__Container">
+                        <h1 class="FeedPost__Headline"> Title </h1>
+                        <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla. Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
+                            tincidunt et, tincidunt eget, semper nec, quam. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non,
+                            euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
+                            Nullam cursus lacinia erat.</p>
+                    </article>
+                </section>
+                <section class="FeedPost">
+                    <article class="FeedPost__Container">
+                        <h1 class="FeedPost__Headline"> Title </h1>
+                        <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla. Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
+                            tincidunt et, tincidunt eget, semper nec, quam. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non,
+                            euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
+                            Nullam cursus lacinia erat.</p>
+                    </article>
+                </section>
+                <section class="FeedPost">
+                    <article class="FeedPost__Container">
+                        <h1 class="FeedPost__Headline"> Title </h1>
+                        <p class="FeedPost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc nulla. Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
+                            tincidunt et, tincidunt eget, semper nec, quam. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt non,
+                            euismod vitae, posuere imperdiet, leo. Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus aliquet elit ac nisl. Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit.
+                            Nullam cursus lacinia erat.</p>
+                    </article>
+                </section>
+            </div>
+
         </div>
+        <!--*************END FEED PAGE************************************************************************************ -->
+        <!--*************END FEED PAGE************************************************************************************ -->
 
-    </div>
-     <!--*************END FEED PAGE************************************************************************************ -->
-     <!--*************END FEED PAGE************************************************************************************ -->
 
-     
-     <!-- <footer>
+        <!-- <footer>
         <p>WE creative &copy; 2020</p>
     </footer> -->
 
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>
