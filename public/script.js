@@ -108,16 +108,16 @@ async function initLoginForm(){
     form.addEventListener('submit', async(event) => {
         event.preventDefault()
         const response = await fetch('http://localhost:8070/users/login/')
-        console.log(response)
+        const error = document.querySelector(".Form__Login__Error")
+
         if(response.status == 200){
             pages[Object.keys(pages)[0]].element.classList.remove('hidden')
             pages[Object.keys(pages)[2]].element.classList.add('hidden')
         } else {
-            console.log('sorry')
+            error.classList.toggle('hide')
+            error.innerHTML = "Username password missmatch"
         }
-
     })
-   
 }
 
 function initForm() {
@@ -168,6 +168,8 @@ function initForm() {
             errorPasswordRepeat.innerHTML = "Password does not match!"
         } else {
             createUser(name, surname, username, email, password)
+            pages[Object.keys(pages)[2]].element.classList.remove('hidden')
+            pages[Object.keys(pages)[1]].element.classList.add('hidden')
         }
     })
 }
