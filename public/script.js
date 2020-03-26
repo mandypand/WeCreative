@@ -63,20 +63,20 @@ async function createPost(title, content, author) {
 const pages = {
     'page-1': {
         element: document.querySelector('.page-1'),
-        title: 'profile'
+        title: 'page-1'
     },
 
     'page-2': {
         element: document.querySelector('.page-2'),
-        title: 'signUp'
+        title: 'page-2'
     },
     'page-3': {
         element: document.querySelector('.page-3'),
-        title: 'logIn'
+        title: 'page-3'
     },
     'page-4': {
         element: document.querySelector('.page-4'),
-        title: 'feed'
+        title: 'page-4'
     },
 }
 
