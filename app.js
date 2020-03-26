@@ -40,7 +40,8 @@ app.post('/users', async (req, res) => {
         res.json(documents)
 
     } else {
-        console.log("error")
+        res.status(404)
+        res.send({error: 'error'})
     }
 
 })
@@ -56,7 +57,7 @@ app.post('/users/login', async (req, res) =>{
     //     res.send({error: 'error'})
     // }
     res.status(200)
-      res.send('sucess')
+    res.send('sucess')
 })
 
 app.get('/post', async (req, res) => {
@@ -100,7 +101,7 @@ app.post('/post/create', async (req, res) => {
         content: req.body.content,
         author: req.body.author
     })
-    res.json({ "documents": documents })
+    res.json({ 'documents': documents })
 })
 
 
@@ -112,7 +113,7 @@ app.patch('/post/:id', async (req, res) => {
             author: req.body.author
         }
     })
-    res.json({ "documents": documents })
+    res.json({ 'documents': documents })
 })
 
 

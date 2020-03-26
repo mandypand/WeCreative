@@ -44,8 +44,8 @@ async function createPost(title, content, author) {
 // function initNewPost() {
 //     const form = document.querySelectorAll('.Profile__Right-Form-button');
 //     const pages = document.querySelectorAll('.page')
-//     if (document.initNewPost == "") {
-//         alert("please enter some text first");
+//     if (document.initNewPost == '') {
+//         alert('please enter some text first');
 //     } else {
 //         doncument.initNewPost.click();
 //     }
@@ -82,11 +82,11 @@ const pages = {
 
 function initNav() {
     const keys = Object.keys(pages)
-    const nav = document.querySelector("nav")
+    const nav = document.querySelector('nav')
     for (let pageKey of keys) {
         const pageObject = pages[pageKey]
-        let anchor = document.createElement("a")
-        anchor.addEventListener("click", () => {
+        let anchor = document.createElement('a')
+        anchor.addEventListener('click', () => {
             renderView(pageKey)
         })
         anchor.innerText = pageObject.title
@@ -98,24 +98,25 @@ function renderView(page) {
     if (!pages[page]) { throw new Error('Page not found') }
     const pageObjects = Object.values(pages)
     for (let page of pageObjects) {
-        page.element.classList.add("hidden")
+        page.element.classList.add('hidden')
     }
-    pages[page].element.classList.remove("hidden")
+    pages[page].element.classList.remove('hidden')
 }
 
+// Login
 async function initLoginForm(){
     const form = document.querySelector('#Form__Login')
     form.addEventListener('submit', async(event) => {
         event.preventDefault()
         const response = await fetch('http://localhost:8070/users/login/')
-        const error = document.querySelector(".Form__Login__Error")
+        const error = document.querySelector('.Form__Login__Error')
 
         if(response.status == 200){
             pages[Object.keys(pages)[0]].element.classList.remove('hidden')
             pages[Object.keys(pages)[2]].element.classList.add('hidden')
         } else {
             error.classList.toggle('hide')
-            error.innerHTML = "Username password missmatch"
+            error.innerHTML = 'Username password missmatch'
         }
     })
 }
@@ -131,41 +132,41 @@ function initForm() {
         const email = form.querySelector('.email').value
         const password = form.querySelector('.password').value
         const passwordAgain = form.querySelector('.passwordAgain').value
-        const errorName = document.querySelector(".Error__Name")
-        const errorSurname = document.querySelector(".Error__Surname")
-        const errorUsername = document.querySelector(".Error__Username")
-        const errorEmail = document.querySelector(".Error__Email")
-        const errorPassword = document.querySelector(".Error__Password")
-        const errorPasswordRepeat = document.querySelector(".Error__Password__Repeat")
+        const errorName = document.querySelector('.Error__Name')
+        const errorSurname = document.querySelector('.Error__Surname')
+        const errorUsername = document.querySelector('.Error__Username')
+        const errorEmail = document.querySelector('.Error__Email')
+        const errorPassword = document.querySelector('.Error__Password')
+        const errorPasswordRepeat = document.querySelector('.Error__Password__Repeat')
 
         if (name.length < 2) {
-            errorName.classList.toggle("hide")
-            errorName.innerHTML = "At least two characters"
+            errorName.classList.toggle('hide')
+            errorName.innerHTML = 'At least two characters'
 
         }
         if (surname.length < 2) {
-            errorSurname.classList.toggle("hide")
-            errorSurname.innerHTML = "At least two characters"
+            errorSurname.classList.toggle('hide')
+            errorSurname.innerHTML = 'At least two characters'
 
         }
         if (username.length < 2) {
-            errorUsername.classList.toggle("hide")
-            errorUsername.innerHTML = "At least two characters"
+            errorUsername.classList.toggle('hide')
+            errorUsername.innerHTML = 'At least two characters'
 
         }
         if (email.length < 2) {
-            errorEmail.classList.toggle("hide")
-            errorEmail.innerHTML = "Email alreaty exist"
+            errorEmail.classList.toggle('hide')
+            errorEmail.innerHTML = 'Email alreaty exist'
 
         }
         if (password.length < 2) {
-            errorPassword.classList.toggle("hide")
-            errorPassword.innerHTML = "At least two characters"
+            errorPassword.classList.toggle('hide')
+            errorPassword.innerHTML = 'At least two characters'
 
         }
         if (passwordAgain != password) {
-            errorPasswordRepeat.classList.toggle("hide")
-            errorPasswordRepeat.innerHTML = "Password does not match!"
+            errorPasswordRepeat.classList.toggle('hide')
+            errorPasswordRepeat.innerHTML = 'Password does not match!'
         } else {
             createUser(name, surname, username, email, password)
             pages[Object.keys(pages)[2]].element.classList.remove('hidden')
@@ -184,8 +185,8 @@ run()
 
 // UPLOAD PROFILEPICTURE 
 function toggleDefaultUpload() {
-    const realUpload = document.querySelector(".Profile__Upload-profilePicture")
-    const customUpload = document.querySelector(".Profile__Upload-profilePicture-Custom")
+    const realUpload = document.querySelector('.Profile__Upload-profilePicture')
+    const customUpload = document.querySelector('.Profile__Upload-profilePicture-Custom')
     
     customUpload.addEventListener('click', function() {
         realUpload.click(); 
@@ -194,7 +195,7 @@ function toggleDefaultUpload() {
 window.addEventListener('load', function() {
     document.querySelector('input[type="file"]').addEventListener('change', function() {
         if  (this.files && this.files[0]) {
-            var img = document.querySelector(".UserProfilePicture"); 
+            var img = document.querySelector('.UserProfilePicture'); 
             img.src = window.URL.createObjectURL(this.files[0]); 
             img.onload = imageIsLoaded; 
         }
@@ -203,11 +204,11 @@ window.addEventListener('load', function() {
 
 // EDIT & DELETE-BUTTON -  PROFILEPAGE 
 function hideShow() {
-    const edit = document.querySelector(".Toggle__Edit");
-    if (edit.style.display === "none") {
-        edit.style.display = "block";
+    const edit = document.querySelector('.Toggle__Edit');
+    if (edit.style.display === 'none') {
+        edit.style.display = 'block';
     } else {
-        edit.style.display = "none";
+        edit.style.display = 'none';
     }
 }
 
@@ -219,7 +220,7 @@ function hideShow() {
 
 // newPost.addEventListener('submit', (event) => {
 //     event.preventDefault();
-//     console.log("Profile form has been submitted")
+//     console.log('Profile form has been submitted')
 // });
 
 
@@ -227,12 +228,12 @@ function hideShow() {
 // UPLOAD MP3
 // const loadFile = function(event) {
 
-//     let mp3 = document.getElementById("output");
+//     let mp3 = document.getElementById('output');
 //     mp3.src = URL.createObjectURL(event.target.files[0]);
 
-//     if (mp3.style.display === "block") {
-//         mp3.style.display === "block";
+//     if (mp3.style.display === 'block') {
+//         mp3.style.display === 'block';
 //     } else {
-//         mp3.style.display = "grid";
+//         mp3.style.display = 'grid';
 //     }
 // }
