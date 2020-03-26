@@ -130,7 +130,30 @@ async function run() {
 run()
 
 //----page function----//
+async function listPost() {
+    const request = await fetch('http://localhost:8070/post/', {
+        method: 'GET'
+    })
+    const data = await request.json()
+    return data.responsiveJSON
+}
 
+async function createPosts(title, type, file, author) {
+    const request = await fetch('http://localhost:8070/post/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            type: type,
+            file: file,
+            author: author
+        })
+    })
+    const data = await request.json()
+    return data
+}
 // const newPost = document.querySelector('Profile__Container-right');
 // const pages = document.querySelectorAll('.page')
 

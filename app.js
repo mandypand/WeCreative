@@ -19,14 +19,14 @@ app.get('/users/:id', async (req, res) => {
     res.json(documents)
 })
 
-app.post('/users', async (req, res) =>{
-    const user =  await users.findOne({username: req.body.username})
-    if(user && user.password == req.body.password){
+app.post('/users', async (req, res) => {
+    const user = await users.findOne({ username: req.body.username })
+    if (user && user.password == req.body.password) {
         res.status(200)
         res.send('sucess')
     } else {
         res.status(404)
-        res.send({error: 'error'})
+        res.send({ error: 'error' })
     }
 })
 
@@ -87,6 +87,20 @@ app.post('/add', (req, res) => {
     post.insert(newNote, function (err, doc) {
         res.redirect('/page')
     })
+})
+*/
+
+/*
+app.post('/post/create', (req, res) => {
+    const newPost = ({
+        title: req.body.title,
+        type: req.body.type,
+        file: req.body.file,
+        author: req.body.author
+    })
+    post.insert(newPost, function (error, newDoc) {
+        res.redirect('/')
+    });
 })
 */
 
