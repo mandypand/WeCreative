@@ -105,16 +105,13 @@ function renderView(page) {
 
 async function initLoginForm(){
     const form = document.querySelector('#Form__Login')
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async(event) => {
         event.preventDefault()
-        const username = form.querySelector('.name').value
-        const password = form.querySelector('.password').value
-
-        if(status == 200){
-            if(username && password < 2) {
-                console.log('hello')
-            }
-    
+        const response = await fetch('http://localhost:8070/users/login/')
+        console.log(response)
+        if(response.status == 200){
+            pages[Object.keys(pages)[0]].element.classList.remove('hidden')
+            pages[Object.keys(pages)[2]].element.classList.add('hidden')
         } else {
             console.log('sorry')
         }
@@ -179,6 +176,7 @@ async function run() {
     initForm()
     const users = await listUsers()
     initNav()
+    initLoginForm()
 }
 run()
 

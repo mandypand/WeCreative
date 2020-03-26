@@ -19,21 +19,14 @@ app.get('/users/:id', async (req, res) => {
     res.json(documents)
 })
 
-app.post('/users', async (req, res) =>{
-    const user =  await users.findOne({username: req.body.username})
-    if(user && user.password == req.body.password){
-        res.status(200)
-        res.send('sucess')
-    } else {
-        res.status(404)
-        res.send({error: 'error'})
-    }
+app.get('/users/login', async (req, res) => {
+    const responsiveJSON = await users.find({})
+    res.json({ 'responsiveJSON': responsiveJSON })
+    
 })
-
 
 app.post('/users', async (req, res) => {
     let user = await users.findOne({ email: req.body.email })
-    let emailSign = req.body.email
 
     if (!user) {
         let newUser = {
@@ -52,12 +45,24 @@ app.post('/users', async (req, res) => {
 
 })
 
+app.post('/users/login', async (req, res) =>{
+    const user =  await users.findOne({})
+    console.log(req.body.password)
+    // if(user && user.password == req.body.password){
+    //     res.status(200)
+    //     res.send('sucess')
+    // } else {
+    //     res.status(404)
+    //     res.send({error: 'error'})
+    // }
+    res.status(200)
+      res.send('sucess')
+})
 
 app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
     res.json({ 'responsiveJSON': responsiveJSON })
 })
-
 
 app.get('/post/:id', async (req, res) => {
     const documents = await post.findOne({ _id: req.params.id })
