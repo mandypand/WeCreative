@@ -108,9 +108,22 @@ async function initLoginForm(){
     const form = document.querySelector('#Form__Login')
     form.addEventListener('submit', async(event) => {
         event.preventDefault()
-        const response = await fetch('http://localhost:8070/users/login/')
+        const username = document.querySelector('.Name').value
+        const password = document.querySelector('.Password').value
         const error = document.querySelector('.Form__Login__Error')
+        
+        const response = await fetch('http://localhost:8070/login/',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              username: username,
+              password: password
+            })
 
+        })     
+       
         if(response.status == 200){
             pages[Object.keys(pages)[0]].element.classList.remove('hidden')
             pages[Object.keys(pages)[2]].element.classList.add('hidden')
@@ -120,6 +133,7 @@ async function initLoginForm(){
         }
     })
 }
+
 
 function initForm() {
     const form = document.querySelector('#Form__Signup')

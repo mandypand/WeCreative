@@ -19,22 +19,11 @@ app.get('/users/:id', async (req, res) => {
     res.json(documents)
 })
 
-<<<<<<< HEAD
-app.post('/users', async (req, res) => {
-    const user = await users.findOne({ username: req.body.username })
-    if (user && user.password == req.body.password) {
-        res.status(200)
-        res.send('sucess')
-    } else {
-        res.status(404)
-        res.send({ error: 'error' })
-    }
-=======
-app.get('/users/login', async (req, res) => {
+app.get('/login', async (req, res) => {
     const responsiveJSON = await users.find({})
     res.json({ 'responsiveJSON': responsiveJSON })
+   
     
->>>>>>> 0c38e4662acb7ca0dceab7aee85e474012beba48
 })
 
 app.post('/users', async (req, res) => {
@@ -58,19 +47,21 @@ app.post('/users', async (req, res) => {
 
 })
 
-app.post('/users/login', async (req, res) =>{
-    const user =  await users.findOne({})
-    console.log(req.body.password)
-    // if(user && user.password == req.body.password){
-    //     res.status(200)
-    //     res.send('sucess')
-    // } else {
-    //     res.status(404)
-    //     res.send({error: 'error'})
-    // }
-    res.status(200)
-    res.send('sucess')
-})
+app.post('/login', async (req, res) =>{
+    const user = await users.findOne({username: req.body.username})
+ 
+     for (const key in user) {
+        
+         if(user && user.password == req.body.password){
+             res.status(200)
+             res.send('sucess')
+             
+         } else {
+             res.status(404)
+             res.send({error: 'error'})
+         }
+       }
+ })
 
 app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
