@@ -27,12 +27,11 @@
                                 <div class="Insert-profilePicture__Container"><img class="Profile__Profile-Picture UserProfilePicture"></div>
                             </label>
                         </div>
-                        <button class="Profile__Left-button" type="submit" value="publish"> add post </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload photo </button>
                         <button class="Profile__Left-button" type="submit" value="publish"> upload video </button>
                         <!--Audio upload-->
                         <input type="file" accept="audio/*" name="audio" id="file" onchange="loadFile(event)" style="display: none;">
-                        <button class="Profile__Left-button"><label for="file" style="cursor: pointer;">Upload mp3</label></button>
+                        <button class="Profile__Left-button"><label for="file" style="cursor: pointer;"> upload mp3 </label></button>
                         <!--Audio upload-->
                     </aside>
                     <article class="Profile__Container-right">
@@ -46,7 +45,7 @@
                             </textarea>
                             <audio id="output" controls src="" style="display: none;"></audio>
                             <div class="Profile__Right-Form-button">
-                                <button type="submit" value="publish"> publish </button>
+                                <button action="/add" type="submit" value="publish"> publish </button>
                             </div>
                         </form>
                     </article>

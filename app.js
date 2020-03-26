@@ -70,31 +70,29 @@ app.delete('/post/:id', async (req, res) => {
     res.json(documents)
 })
 
-/*
-app.get('/add', async (req, res) => {
-    const responsiveJSON = await post.find({})
-    res.json({ 'responsiveJSON': responsiveJSON })
-    res.redirect('add');
-})
-*/
 
-/*
+// app.get('/add', async (req, res) => {
+//     const responsiveJSON = await post.find({})
+//     res.json({ 'responsiveJSON': responsiveJSON })
+//     res.redirect('add');
+// })
+
+
 app.post('/add', (req, res) => {
-    const newNote = {
+    const newPost = {
         title: req.body.title,
         content: req.body.content
     };
-    post.insert(newNote, function (err, doc) {
-        res.redirect('/page')
+    post.insert(newPost, function (err, doc) {
+        res.redirect('/index')
     })
 })
-*/
+
 
 app.post('/post/create', async (req, res) => {
     const documents = await post.insert({
         title: req.body.title,
-        type: req.body.type,
-        file: req.body.file,
+        content: req.body.content,
         author: req.body.author
     })
     res.json({ "documents": documents })
@@ -105,8 +103,7 @@ app.patch('/post/:id', async (req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
         $set: {
             title: req.body.title,
-            type: req.body.type,
-            file: req.body.file,
+            content: req.body.content,
             author: req.body.author
         }
     })

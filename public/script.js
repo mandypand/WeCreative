@@ -24,24 +24,59 @@ async function createUser(name, surname, username, email, password) {
     return data
 }
 
+
+async function createPost(title, content, author) {
+    const request = await fetch('http://localhost:8070/post/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            content: content,
+            author: author
+        })
+    })
+    const data = await request.json()
+    return data
+}
+
+// function initNewPost() {
+//     const form = document.querySelectorAll('.Profile__Right-Form-button');
+//     const pages = document.querySelectorAll('.page')
+//     if (document.initNewPost == "") {
+//         alert("please enter some text first");
+//     } else {
+//         doncument.initNewPost.click();
+//     }
+// }
+
+
+// async function init() {
+//     initNewPost()
+//     const posts = await newPost()
+// }
+
+
+
 // all our pages
 const pages = {
     'page-1': {
         element: document.querySelector('.page-1'),
-        title: 'page-1'
+        title: 'profile'
     },
 
     'page-2': {
         element: document.querySelector('.page-2'),
-        title: 'page-2'
+        title: 'signUp'
     },
     'page-3': {
         element: document.querySelector('.page-3'),
-        title: 'page-3'
+        title: 'logIn'
     },
     'page-4': {
         element: document.querySelector('.page-4'),
-        title: 'page-4'
+        title: 'feed'
     },
 }
 
@@ -187,39 +222,6 @@ function hideShow() {
 //     console.log("Profile form has been submitted")
 // });
 
-
-/*
-async function createPost(post) {
-    const request = await fetch('http://localhost:8070/post/', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            title: title,
-            content: content
-        })
-    })
-    const data = await request.json()
-    return data
-}
-
-function initNewPost() {
-    const form = document.querySelectorAll('.Profile__Right-Form-button');
-    const pages = document.querySelectorAll('.page')
-    if (document.initNewPost == "") {
-        alert("please enter some text first");
-    } else {
-        doncument.initNewPost.click();
-    }
-}
-
-
-async function init() {
-    initNewPost()
-    const posts = await newPost()
-}
-*/
 
 
 // UPLOAD MP3

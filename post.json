@@ -1,68 +1,57 @@
 {
     "results": [{
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "imagepost",
-            "file": "img",
+            "title": "Mat och dryck",
+            "content": "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet",
             "author": "Caroline Olby"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "imagepost",
-            "file": "img",
+            "title": "Franskalivsstilen",
+            "conent": "Pellentesque auctor neque nec urna. Fusce a quam.",
             "author": "Amanda Jakobsson"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "imagepost",
-            "file": "img",
+            "title": "Träningen dag 5",
+            "content": "Proin faucibus arcu quis ante. Aenean commodo ligula eget dolor.",
             "author": "Rodrigo Ruiz"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "imagepost",
-            "file": "img",
+            "title": "Ny musik",
+            "content": "Nunc interdum lacus sit amet orci Nullam quis ante.",
             "author": "Andreas Norberg"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "videopost",
-            "file": "video",
+            "title": "Inredningstips",
+            "content": "Morbi ac felis. Duis lobortis massa imperdiet quam.",
             "author": "Hanna Westlund"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "musicpost",
-            "file": "audio",
+            "title": "Barer i Stockholm",
+            "content": "Morbi ac felis. Duis lobortis massa imperdiet quam.",
             "author": "Niklas Borg"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "textpost",
-            "file": "p",
+            "title": "CS",
+            "content": "Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Nullam sagittis.",
             "author": "Joakim Hedlund"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "musicpost",
-            "file": "audio",
+            "title": "Outfit for today",
+            "content": "Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
             "author": "Cassandra Bastias"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "videopost",
-            "file": "video",
+            "title": "Foto och photoshoptips",
+            "content": "Aenean ut eros et nisl sagittis vestibulum.",
             "author": "Bruna Pilota"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "videopost",
-            "file": "video",
+            "title": "Teamwork och agil-utveckling",
+            "content": "Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Donec posuere vulputate arcu.",
             "author": "Aram Naim"
         },
         {
-            "title": "Lorem ipsum dolor sit amet",
-            "type": "musicpost",
-            "file": "audio",
+            "title": "10 basplagg i garderoben",
+            "content": "Donec id justo. Donec id justo. Donec id justo.",
             "author": "Camilla Gapparova"
         }
     ]
