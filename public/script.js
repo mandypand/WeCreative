@@ -80,6 +80,7 @@ const pages = {
     },
 }
 
+//Temporary Nav
 function initNav() {
     const keys = Object.keys(pages)
     const nav = document.querySelector('nav')
@@ -102,6 +103,30 @@ function renderView(page) {
     }
     pages[page].element.classList.remove('hidden')
 }
+
+
+// TOGGLE SIGNUP AND LOGIN, IN LOGIN 
+async function signUpButton(){
+    const signUp = document.querySelector('.Form__Login-link')
+    signUp.addEventListener('click', (event) => {
+        event.preventDefault()
+        pages[Object.keys(pages)[1]].element.classList.remove('hidden')
+        pages[Object.keys(pages)[2]].element.classList.add('hidden')
+        
+    })
+}
+signUpButton()
+
+// TOGGLE PROFILE AND FEED, IN PROFILE 
+async function feedButton(){
+    const feed = document.querySelector('.Profile__ToFeed-link')
+    feed.addEventListener('click', (event) => {
+        event.preventDefault()
+        pages[Object.keys(pages)[3]].element.classList.remove('hidden')
+        pages[Object.keys(pages)[0]].element.classList.add('hidden')
+    })
+}
+feedButton()
 
 // Login
 async function initLoginForm(){

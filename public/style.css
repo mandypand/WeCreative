@@ -322,14 +322,21 @@ input[type="file"] {
     background: #1B1B1B;
 }
 
+.Profile__ToFeed-link {
+    text-decoration: none;
+    color: #ffffff; 
+    margin-left: 500px;
+}
+
 .ProfilePost__Headline {
     color: #ffffff;
     text-align: center;
     font-size: 40px;
     font-weight: 100;
+    padding: 20px;
     margin: 0;
     padding: 0;
-    padding: 20px;
+
 }
 
 .ProfilePost__Paragraph {
@@ -414,10 +421,11 @@ footer {
 }
 
 a {
+    color: blue; 
     cursor: pointer;
     padding: 1rem;
     margin: 1rem;
-    background-color: #494949;
+    /* background-color: #494949; */
 }
 
 
