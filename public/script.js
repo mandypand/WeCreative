@@ -1,3 +1,4 @@
+// Gets all users
 async function listUsers() {
     const request = await fetch('http://localhost:8070/users/', {
         method: 'GET'
@@ -6,6 +7,7 @@ async function listUsers() {
     return data.responsiveJSON
 }
 
+// Creates a new user
 async function createUser(name, surname, username, email, password) {
     const request = await fetch('http://localhost:8070/users/', {
         method: 'POST',
@@ -59,7 +61,7 @@ async function createPost(title, content, author) {
 
 
 
-// all our pages
+// all pages
 const pages = {
     'page-1': {
         element: document.querySelector('.page-1'),
@@ -94,7 +96,7 @@ function initNav() {
         nav.append(anchor)
     }
 }
-
+//Temporary Nav
 function renderView(page) {
     if (!pages[page]) { throw new Error('Page not found') }
     const pageObjects = Object.values(pages)
@@ -159,7 +161,7 @@ async function initLoginForm(){
     })
 }
 
-
+// Registration
 function initForm() {
     const form = document.querySelector('#Form__Signup')
     form.addEventListener('submit', (event) => {
@@ -213,7 +215,7 @@ function initForm() {
         }
     })
 }
-
+// Run all functions
 async function run() {
     initForm()
     const users = await listUsers()

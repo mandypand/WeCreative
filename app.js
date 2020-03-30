@@ -48,10 +48,7 @@ app.post('/users', async (req, res) => {
 })
 
 app.post('/login', async (req, res) =>{
-    const user = await users.findOne({username: req.body.username})
- 
-     for (const key in user) {
-        
+    const user = await users.findOne({username: req.body.username})    
          if(user && user.password == req.body.password){
              res.status(200)
              res.send('sucess')
@@ -60,7 +57,6 @@ app.post('/login', async (req, res) =>{
              res.status(404)
              res.send({error: 'error'})
          }
-       }
  })
 
 app.get('/post', async (req, res) => {
