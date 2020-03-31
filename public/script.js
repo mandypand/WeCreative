@@ -154,6 +154,8 @@ async function initLoginForm(){
         if(response.status == 200){
             pages[Object.keys(pages)[0]].element.classList.remove('hidden')
             pages[Object.keys(pages)[2]].element.classList.add('hidden')
+            passvalues()
+            const result = document.querySelector('.USERNAME').innerHTML=localStorage.getItem('textvalue')
         } else {
             error.classList.toggle('hide')
             error.innerHTML = 'Username password missmatch'
@@ -215,6 +217,14 @@ function initForm() {
         }
     })
 }
+
+// Stores user data
+function passvalues() {
+    const username = document.querySelector('.Name').value
+    localStorage.setItem('textvalue', username)
+    return false
+}
+
 // Run all functions
 async function run() {
     initForm()
