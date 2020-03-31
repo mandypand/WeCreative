@@ -120,7 +120,7 @@ function refreshPage(){
 
 // EDIT & DELETE
 async function deletePost(title, content) {
-    const request = await fetch('http://localhost:8040/post/:id', {
+    const request = await fetch('http://localhost:8070/post/:id', {
         method: 'DELETE',
         headers: {
             'content-type': 'aplication/json'
