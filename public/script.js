@@ -280,8 +280,10 @@ function passvalues() {
 async function run() {
     initForm()
     const users = await listUsers()
+    const posts = await listPosts()
     initNav()
     initLoginForm()
+    renderPost(posts)
 }
 run()
 
