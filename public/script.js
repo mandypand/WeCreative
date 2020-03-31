@@ -54,15 +54,15 @@ async function createPost(title, content, author) {
 }
 
 // EDIT & DELETE
-async function deletePost() {
-    const request = await fetch('http://localhost:8070:/post/:id', {
+async function deletePost(title, content) {
+    const request = await fetch('http://localhost:8040/post/:id', {
         method: 'DELETE',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'aplication/json'
         },
         body: JSON.stringify({
-            title: request.body.title,
-            content: request.body.content,
+            title: title,
+            content: content,
         })
     })
     const data = await request.json()
@@ -70,13 +70,13 @@ async function deletePost() {
 }
 
 async function initDeletePost() {
-    const form = document.querySelector('.Toggle__Edit-paragraph')
-    form.addEventListener('delete', async (event) => {
+    const errase = document.querySelector('.Toggle__Delete-paragraph')
+    errase.addEventListener('click', async (event) => {
+        console.log('its working');
         event.preventDefault()
         const response = await fetch('http://localhost:8070/post/:id')
     })
 }
-
 
 
 // Render posts
