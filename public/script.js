@@ -53,12 +53,37 @@ async function createPost(title, content, author) {
     return data
 }
 
+// EDIT & DELETE
+async function deletePost() {
+    const request = await fetch('http://localhost:8070:/post/:id', {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: request.body.title,
+            content: request.body.content,
+        })
+    })
+    const data = await request.json()
+    return data
+}
+
+async function initDeletePost() {
+    const form = document.querySelector('.Toggle__Edit-paragraph')
+    form.addEventListener('delete', async (event) => {
+        event.preventDefault()
+        const response = await fetch('http://localhost:8070/post/:id')
+    })
+}
+
+
 
 // Render posts
-function renderPost(posts){    
+function renderPost(posts) {
     const div = document.createElement('div')
     div.classList.add('Posts__Container-right')
-    
+
     // const postContainer = document.querySelector('ProfilePost__Post')
     document.body.append(div)
 
@@ -79,16 +104,16 @@ function renderPost(posts){
 
 // Init post
 function initPost() {
-    const publishPostBtn = document.querySelector('.Profile__Right-Form-button'); 
+    const publishPostBtn = document.querySelector('.Profile__Right-Form-button');
     publishPostBtn.addEventListener('click', (event) => {
         event.preventDefault()
         const titleValue = document.querySelector('.Profile__Right-Form-inputTitle').value
         const contentValue = document.querySelector('.Profile__Right-Form-inputContent').value
 
-        if(titleValue == "" || contentValue == ""){ 
-             alert('title is empty')
+        if (titleValue == "" || contentValue == "") {
+            alert('title is empty')
         } else {
-           createPost(titleValue, contentValue)
+            createPost(titleValue, contentValue)
         }
     })
 }
@@ -143,19 +168,19 @@ function renderView(page) {
 
 
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
-async function signUpButton(){
+async function signUpButton() {
     const signUp = document.querySelector('.Form__Login-link')
     signUp.addEventListener('click', (event) => {
         event.preventDefault()
         pages[Object.keys(pages)[1]].element.classList.remove('hidden')
         pages[Object.keys(pages)[2]].element.classList.add('hidden')
-        
+
     })
 }
 signUpButton()
 
 // TOGGLE PROFILE AND FEED, IN PROFILE 
-async function feedButton(){
+async function feedButton() {
     const feed = document.querySelector('.Profile__ToFeed-link')
     feed.addEventListener('click', (event) => {
         event.preventDefault()
@@ -166,31 +191,31 @@ async function feedButton(){
 feedButton()
 
 // Login
-async function initLoginForm(){
+async function initLoginForm() {
     const form = document.querySelector('#Form__Login')
-    form.addEventListener('submit', async(event) => {
+    form.addEventListener('submit', async (event) => {
         event.preventDefault()
         const username = document.querySelector('.Name').value
         const password = document.querySelector('.Password').value
         const error = document.querySelector('.Form__Login__Error')
-        
-        const response = await fetch('http://localhost:8070/login/',{
+
+        const response = await fetch('http://localhost:8070/login/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-              username: username,
-              password: password
+                username: username,
+                password: password
             })
 
-        })     
-       
-        if(response.status == 200){
+        })
+
+        if (response.status == 200) {
             pages[Object.keys(pages)[0]].element.classList.remove('hidden')
             pages[Object.keys(pages)[2]].element.classList.add('hidden')
             passvalues()
-            const result = document.querySelector('.USERNAME').innerHTML=localStorage.getItem('textvalue')
+            const result = document.querySelector('.USERNAME').innerHTML = localStorage.getItem('textvalue')
         } else {
             error.classList.toggle('hide')
             error.innerHTML = 'Username password missmatch'
@@ -275,17 +300,17 @@ run()
 function toggleDefaultUpload() {
     const realUpload = document.querySelector('.Profile__Upload-profilePicture')
     const customUpload = document.querySelector('.Profile__Upload-profilePicture-Custom')
-    
-    customUpload.addEventListener('click', function() {
-        realUpload.click(); 
+
+    customUpload.addEventListener('click', function () {
+        realUpload.click();
     })
 }
-window.addEventListener('load', function() {
-    document.querySelector('input[type="file"]').addEventListener('change', function() {
-        if  (this.files && this.files[0]) {
-            var img = document.querySelector('.UserProfilePicture'); 
-            img.src = window.URL.createObjectURL(this.files[0]); 
-            img.onload = imageIsLoaded; 
+window.addEventListener('load', function () {
+    document.querySelector('input[type="file"]').addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            var img = document.querySelector('.UserProfilePicture');
+            img.src = window.URL.createObjectURL(this.files[0]);
+            img.onload = imageIsLoaded;
         }
     });
 });
