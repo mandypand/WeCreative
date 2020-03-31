@@ -43,21 +43,72 @@ async function createPost(title, content, author) {
     return data
 }
 
-// function initNewPost() {
-//     const form = document.querySelectorAll('.Profile__Right-Form-button');
-//     const pages = document.querySelectorAll('.page')
-//     if (document.initNewPost == '') {
-//         alert('please enter some text first');
-//     } else {
-//         doncument.initNewPost.click();
-//     }
-// }
+// Gets all posts
+async function listPosts() {
+    const request = await fetch('http://localhost:8050/post/', {
+        method: 'GET'
+    })
+    const data = await request.json()
+    return data.responsiveJSON
+}
 
 
-// async function init() {
-//     initNewPost()
-//     const posts = await newPost()
-// }
+// Creates a new posts
+async function createPost(title, content, author) {
+    const request = await fetch('http://localhost:8050/post/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            content: content,
+            author: author
+        })
+    })
+    const data = await request.json()
+    return data 
+}
+
+
+// Render posts
+function renderPost(posts){    
+    const div = document.createElement('div')
+    div.classList.add('Posts__Container-right')
+    
+    // const postContainer = document.querySelector('ProfilePost__Post')
+    document.body.append(div)
+
+    for (let post of posts) {
+        let headline = document.createElement("h1")
+        headline.classList.add('ProfilePost__Headline')
+        let paragraph = document.createElement("p")
+        paragraph.classList.add('ProfilePost__Paragraph')
+
+        headline.innerHTML = post.title
+        paragraph.innerHTML = post.content
+
+        div.append(headline)
+        div.append(paragraph)
+    }
+}
+
+
+function initPost() {
+    const publishPostBtn = document.querySelector('.Profile__Right-Form-button'); 
+    publishPostBtn.addEventListener('click', (event) => {
+        event.preventDefault()
+        const titleValue = document.querySelector('.Profile__Right-Form-inputTitle').value
+        const contentValue = document.querySelector('.Profile__Right-Form-inputContent').value
+
+        if(titleValue == "" || contentValue == ""){ 
+             alert('title is empty')
+        } else {
+           createPost(titleValue, contentValue)
+        }
+    })
+}
+initPost()
 
 
 
@@ -262,41 +313,6 @@ function hideShow() {
         edit.style.display = 'none';
     }
 }
-
-//----page function----//
-async function listPost() {
-    const request = await fetch('http://localhost:8070/post/', {
-        method: 'GET'
-    })
-    const data = await request.json()
-    return data.responsiveJSON
-}
-
-async function createPosts(title, type, file, author) {
-    const request = await fetch('http://localhost:8070/post/', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            title: title,
-            type: type,
-            file: file,
-            author: author
-        })
-    })
-    const data = await request.json()
-    return data
-}
-// const newPost = document.querySelector('Profile__Container-right');
-// const pages = document.querySelectorAll('.page')
-
-
-// newPost.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     console.log('Profile form has been submitted')
-// });
-
 
 
 // UPLOAD MP3

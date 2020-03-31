@@ -295,6 +295,10 @@ input[type="file"] {
     margin: 10px;
 }
 
+.Profile__Right-Form-inputContent {
+    height: 250px; 
+}
+
 .Profile__Right-Form-button {
     flex-direction: row;
     text-align: center;
