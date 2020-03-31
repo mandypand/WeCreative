@@ -45,7 +45,7 @@ async function createPost(title, content, author) {
 
 // Gets all posts
 async function listPosts() {
-    const request = await fetch('http://localhost:8050/post/', {
+    const request = await fetch('http://localhost:8070/post/', {
         method: 'GET'
     })
     const data = await request.json()
@@ -55,7 +55,7 @@ async function listPosts() {
 
 // Creates a new posts
 async function createPost(title, content, author) {
-    const request = await fetch('http://localhost:8050/post/', {
+    const request = await fetch('http://localhost:8070/post/', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
