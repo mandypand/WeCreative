@@ -59,74 +59,20 @@ app.post('/login', async (req, res) =>{
          }
  })
 
-app.get('/post', async (req, res) => {
+ app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
     res.json({ 'responsiveJSON': responsiveJSON })
 })
 
-app.get('/post/:id', async (req, res) => {
-    const documents = await post.findOne({ _id: req.params.id })
-    res.json(documents)
-})
-
-
-app.delete('/post/:id', async (req, res) => {
-    const documents = await post.remove({ _id: req.params.id })
-    res.json(documents)
-})
-
-
-// app.get('/add', async (req, res) => {
-//     const responsiveJSON = await post.find({})
-//     res.json({ 'responsiveJSON': responsiveJSON })
-//     res.redirect('add');
-// })
-
-
-app.post('/add', (req, res) => {
-    const newPost = {
-        title: req.body.title,
-        content: req.body.content
-    };
-    post.insert(newPost, function (err, doc) {
-        res.redirect('/index')
-    })
-})
-
-
-/*
-app.post('/post/create', (req, res) => {
-    const newPost = ({
-        title: req.body.title,
-        type: req.body.type,
-        file: req.body.file,
-        author: req.body.author
-    })
-    post.insert(newPost, function (error, newDoc) {
-        res.redirect('/')
-    });
-})
-*/
-
-app.post('/post/create', async (req, res) => {
-    const documents = await post.insert({
+app.post('/post', async (req, res) => {
+    const newPost = await {
         title: req.body.title,
         content: req.body.content,
         author: req.body.author
-    })
-    res.json({ 'documents': documents })
-})
+    };
 
-
-app.patch('/post/:id', async (req, res) => {
-    const documents = await post.update({ _id: req.params.id }, {
-        $set: {
-            title: req.body.title,
-            content: req.body.content,
-            author: req.body.author
-        }
-    })
-    res.json({ 'documents': documents })
+    const documents = await post.insert(newPost) 
+    res.json(documents)
 })
 
 

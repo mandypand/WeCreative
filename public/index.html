@@ -39,17 +39,13 @@
                         <h1 class="Profile__Right-headline"> PROFILE</h1>
 
                         <p class="Profile__Right-paragraph">Whats on your mind today?</p>
-                        <form action="/post/create" method="POST" class="Profile__Right-Form">
-                        <form action="/add" method="POST" class="Profile__Right-Form">
-
+                        <form action="/post" method="POST" class="Profile__Right-Form">
                             <input class="Profile__Right-Form-inputTitle" type="text" name="title" placeholder="Title">
-                            <textarea name="content" cols="30" rows="25">
-                            </textarea>
+                            <input class="Profile__Right-Form-inputContent" name="content" cols="100" rows="100">
                             <audio id="output" controls src="" style="display: none;"></audio>
                             <div class="Profile__Right-Form-button">
-                                <button action="/add" type="submit" value="publish"> publish </button>
+                                <button action="/post" type="submit" value="publish"> publish </button>
                             </div>
-                        </form>
                         </form>
                     </article>
                 </section>
@@ -66,19 +62,8 @@
                                 <p class="Toggle__Edit-paragraph"> Edit </p>
                                 <p class="Toggle__Edit-paragraph"> Delete </p>
                             </div>
-                            <h1 class="ProfilePost__Headline"> Title </h1>
-                            <p class="ProfilePost__Paragraph"> Nunc interdum lacus sit amet orci. Aenean massa. Nunc
-                                nulla.
-                                Etiam ultricies nisi vel augue. Donec interdum, metus et hendrerit aliquet, dolor diam
-                                sagittis ligula, eget egestas libero turpis vel mi. Pellentesque libero tortor,
-                                tincidunt et, tincidunt eget, semper nec, quam.
-                                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Nam quam nunc,
-                                blandit vel, luctus pulvinar, hendrerit id, lorem. Curabitur ligula sapien, tincidunt
-                                non, euismod vitae, posuere imperdiet, leo.
-                                Aenean massa. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Vivamus
-                                aliquet elit ac nisl.
-                                Morbi vestibulum volutpat enim. Duis vel nibh at velit scelerisque suscipit. Nullam
-                                cursus lacinia erat.</p>
+                            <!-- <h1 class="ProfilePost__Headline"> </h1>
+                            <p class="ProfilePost__Paragraph"> </p> -->
                         </div>
                     </article>
                 </section>
