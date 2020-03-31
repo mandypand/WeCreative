@@ -26,7 +26,17 @@ async function createUser(name, surname, username, email, password) {
     return data
 }
 
+// Gets all posts
+async function listPosts() {
+    const request = await fetch('http://localhost:8070/post/', {
+        method: 'GET'
+    })
+    const data = await request.json()
+    return data.responsiveJSON
+}
 
+
+// Creates a new post
 async function createPost(title, content, author) {
     const request = await fetch('http://localhost:8070/post/', {
         method: 'POST',
@@ -41,33 +51,6 @@ async function createPost(title, content, author) {
     })
     const data = await request.json()
     return data
-}
-
-// Gets all posts
-async function listPosts() {
-    const request = await fetch('http://localhost:8070/post/', {
-        method: 'GET'
-    })
-    const data = await request.json()
-    return data.responsiveJSON
-}
-
-
-// Creates a new posts
-async function createPost(title, content, author) {
-    const request = await fetch('http://localhost:8070/post/', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            title: title,
-            content: content,
-            author: author
-        })
-    })
-    const data = await request.json()
-    return data 
 }
 
 
@@ -94,6 +77,7 @@ function renderPost(posts){
 }
 
 
+// Init post
 function initPost() {
     const publishPostBtn = document.querySelector('.Profile__Right-Form-button'); 
     publishPostBtn.addEventListener('click', (event) => {
