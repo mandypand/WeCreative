@@ -26,6 +26,7 @@ async function createUser(name, surname, username, email, password) {
     return data
 }
 
+
 // Gets all posts
 async function listPosts() {
     const request = await fetch('http://localhost:8070/post/', {
@@ -53,41 +54,31 @@ async function createPost(title, content, author) {
     return data
 }
 
-// EDIT & DELETE
-async function deletePost(title, content) {
-    const request = await fetch('http://localhost:8040/post/:id', {
-        method: 'DELETE',
-        headers: {
-            'content-type': 'aplication/json'
-        },
-        body: JSON.stringify({
-            title: title,
-            content: content,
-        })
-    })
-    const data = await request.json()
-    return data
-}
-
-async function initDeletePost() {
-    const errase = document.querySelector('.Toggle__Delete-paragraph')
-    errase.addEventListener('click', async (event) => {
-        console.log('its working');
-        event.preventDefault()
-        const response = await fetch('http://localhost:8070/post/:id')
-    })
-}
-
 
 // Render posts
-function renderPost(posts) {
-    const div = document.createElement('div')
-    div.classList.add('Posts__Container-right')
-
-    // const postContainer = document.querySelector('ProfilePost__Post')
-    document.body.append(div)
-
+function renderPost(posts, postContainer){    
     for (let post of posts) {
+        const div = document.createElement('div')
+        div.classList.add('Posts')
+        
+        //CLONE EDIT & DELETE 
+        let cloneContainer = document.querySelector('.ProfilePost__Btn');
+        let newContainer = cloneContainer.cloneNode(true)
+
+        let container = document.querySelector(".ProfilePost__Post__Btn-container")
+        newContainer.append(div)
+        container.append(div)
+        
+        //ADD EDIT & DELETE BUTTON 
+        // const BtnContainer = document.createElement('div')
+        // BtnContainer.classList.add('ProfilePost__Post__Btn-container')
+    
+        // let btnEditDelete = document.createElement('div')
+        // btnEditDelete.classList.add('ProfilePost__Btn')
+
+        const postC = document.querySelector(postContainer)
+        postC.append(div)
+
         let headline = document.createElement("h1")
         headline.classList.add('ProfilePost__Headline')
         let paragraph = document.createElement("p")
@@ -114,12 +105,43 @@ function initPost() {
             alert('title is empty')
         } else {
             createPost(titleValue, contentValue)
+            refreshPage()
         }
     })
 }
 initPost()
 
 
+// REFRESH PAGE 
+function refreshPage(){
+    window.location.reload();
+}
+
+
+// EDIT & DELETE
+async function deletePost(title, content) {
+    const request = await fetch('http://localhost:8070/post/:id', {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'aplication/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            content: content,
+        })
+    })
+    const data = await request.json()
+    return data
+}
+
+async function initDeletePost() {
+    const errase = document.querySelector('.Toggle__Delete-paragraph')
+    errase.addEventListener('click', async (event) => {
+        console.log('its working');
+        event.preventDefault()
+        const response = await fetch('http://localhost:8070/post/:id')
+    })
+}
 
 // all pages
 const pages = {
@@ -292,7 +314,7 @@ async function run() {
     const posts = await listPosts()
     initNav()
     initLoginForm()
-    renderPost(posts)
+    renderPost(posts, '.Posts__Container-right')
 }
 run()
 
