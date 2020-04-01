@@ -249,7 +249,7 @@ input[type="file"] {
     background: rgba(0, 0, 0, 0.637);
     height: 150px;
     margin: 10px; 
-    margin-left: 600px;
+    margin-top: 40px; 
     position: absolute;
     z-index: 1;
 }
@@ -324,6 +324,7 @@ input[type="file"] {
 .Posts {
     background: #1B1B1B;
     height: auto;
+    margin-top: 20px; 
 }
 
 
@@ -430,3 +431,5 @@ a {
     margin: 1rem;
     /* background-color: #494949; */
 }
+
+

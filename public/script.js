@@ -58,27 +58,53 @@ async function createPost(title, content, author) {
 // Render posts
 function renderPost(posts, postContainer){    
     for (let post of posts) {
-        const div = document.createElement('div')
+        let div = document.createElement('div')
         div.classList.add('Posts')
         
-        //CLONE EDIT & DELETE 
-        let cloneContainer = document.querySelector('.ProfilePost__Btn');
-        let newContainer = cloneContainer.cloneNode(true)
-
-        let container = document.querySelector(".ProfilePost__Post__Btn-container")
-        newContainer.append(div)
-        container.append(div)
+        let postC = document.querySelector(postContainer)
+        postC.append(div)
         
         //ADD EDIT & DELETE BUTTON 
-        // const BtnContainer = document.createElement('div')
-        // BtnContainer.classList.add('ProfilePost__Post__Btn-container')
-    
-        // let btnEditDelete = document.createElement('div')
-        // btnEditDelete.classList.add('ProfilePost__Btn')
+        let btnContainer = document.createElement('div')
+        btnContainer.classList.add('ProfilePost__Post__Btn-container')
+        btnContainer.addEventListener('click', (event) => {
+            event.preventDefault()
+                if (toggleContainer.style.display === 'none') {
+                    toggleContainer.style.display = 'block';
+                } else {
+                    toggleContainer.style.display = 'none';
+                }
+        })
 
-        const postC = document.querySelector(postContainer)
-        postC.append(div)
+        let btnEditDelete = document.createElement('div')
+        btnEditDelete.classList.add('ProfilePost__Btn')
 
+        let btnEditDelete2 = document.createElement('div')
+        btnEditDelete2.classList.add('ProfilePost__Btn')
+
+        let btnEditDelete3 = document.createElement('div')
+        btnEditDelete3.classList.add('ProfilePost__Btn')
+        div.append(btnContainer)
+        btnContainer.append(btnEditDelete)
+        btnContainer.append(btnEditDelete2)
+        btnContainer.append(btnEditDelete3)
+
+        //TOGGLE 
+        let toggleContainer = document.createElement('div')
+        toggleContainer.classList.add('Toggle__Edit')
+        btnContainer.append(toggleContainer)
+
+        let editParagraph = document.createElement("p")
+        editParagraph.classList.add('Toggle__Edit-paragraph')
+        editParagraph.innerHTML = "Edit"
+        toggleContainer.append(editParagraph)
+
+        let deleteParagraph = document.createElement("p")
+        deleteParagraph.classList.add('Toggle__Edit-paragraph')
+        deleteParagraph.innerHTML = "Delete"
+        toggleContainer.append(deleteParagraph)
+
+        //POST 
         let headline = document.createElement("h1")
         headline.classList.add('ProfilePost__Headline')
         let paragraph = document.createElement("p")
@@ -336,17 +362,6 @@ window.addEventListener('load', function () {
         }
     });
 });
-
-// EDIT & DELETE-BUTTON -  PROFILEPAGE 
-function hideShow() {
-    const edit = document.querySelector('.Toggle__Edit');
-    if (edit.style.display === 'none') {
-        edit.style.display = 'block';
-    } else {
-        edit.style.display = 'none';
-    }
-}
-
 
 // UPLOAD MP3
 // const loadFile = function(event) {
