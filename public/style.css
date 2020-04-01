@@ -262,6 +262,10 @@ input[type="file"] {
     margin: 10px; 
 }
 
+.Toggle__Edit-paragraph:hover {
+    color: #8b8b8b; 
+}
+
 .ProfilePost__Post__Btn-container {
     display: flex; 
     flex-direction: row; 
