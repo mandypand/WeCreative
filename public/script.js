@@ -26,7 +26,6 @@ async function createUser(name, surname, username, email, password) {
     return data
 }
 
-
 // Gets all posts
 async function listPosts() {
     const request = await fetch('http://localhost:8070/post/', {
@@ -35,7 +34,6 @@ async function listPosts() {
     const data = await request.json()
     return data.responsiveJSON
 }
-
 
 // Creates a new post
 async function createPost(title, content, author) {
@@ -53,7 +51,6 @@ async function createPost(title, content, author) {
     const data = await request.json()
     return data
 }
-
 
 // Render posts
 function renderPost(posts, postContainer){    
@@ -118,7 +115,6 @@ function renderPost(posts, postContainer){
     }
 }
 
-
 // Init post
 function initPost() {
     const publishPostBtn = document.querySelector('.Profile__Right-Form-button');
@@ -137,12 +133,10 @@ function initPost() {
 }
 initPost()
 
-
 // REFRESH PAGE 
 function refreshPage(){
     window.location.reload();
 }
-
 
 // EDIT & DELETE
 async function deletePost(title, content) {
@@ -204,6 +198,7 @@ function initNav() {
         nav.append(anchor)
     }
 }
+
 //Temporary Nav
 function renderView(page) {
     if (!pages[page]) { throw new Error('Page not found') }
@@ -214,15 +209,14 @@ function renderView(page) {
     pages[page].element.classList.remove('hidden')
 }
 
-
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
 async function signUpButton() {
     const signUp = document.querySelector('.Form__Login-link')
     signUp.addEventListener('click', (event) => {
         event.preventDefault()
-        pages[Object.keys(pages)[1]].element.classList.remove('hidden')
-        pages[Object.keys(pages)[2]].element.classList.add('hidden')
-
+        // pages[Object.keys(pages)[1]].element.classList.remove('hidden')
+        // pages[Object.keys(pages)[2]].element.classList.add('hidden')
+        setCurrentPage([".Signup"])
     })
 }
 signUpButton()
@@ -234,6 +228,7 @@ async function feedButton() {
         event.preventDefault()
         pages[Object.keys(pages)[3]].element.classList.remove('hidden')
         pages[Object.keys(pages)[0]].element.classList.add('hidden')
+        setCurrentPage([".page-4"])
     })
 }
 feedButton()
@@ -260,9 +255,10 @@ async function initLoginForm() {
         })
 
         if (response.status == 200) {
-            pages[Object.keys(pages)[0]].element.classList.remove('hidden')
-            pages[Object.keys(pages)[2]].element.classList.add('hidden')
+            // pages[Object.keys(pages)[0]].element.classList.remove('hidden')
+            // pages[Object.keys(pages)[2]].element.classList.add('hidden')
             passvalues()
+            setCurrentPage([".page-1"])
             const result = document.querySelector('.USERNAME').innerHTML = localStorage.getItem('textvalue')
         } else {
             error.classList.toggle('hide')
@@ -320,8 +316,9 @@ function initForm() {
             errorPasswordRepeat.innerHTML = 'Password does not match!'
         } else {
             createUser(name, surname, username, email, password)
-            pages[Object.keys(pages)[2]].element.classList.remove('hidden')
-            pages[Object.keys(pages)[1]].element.classList.add('hidden')
+            // pages[Object.keys(pages)[2]].element.classList.remove('hidden')
+            // pages[Object.keys(pages)[1]].element.classList.add('hidden')
+            setCurrentPage([".Login"])
         }
     })
 }
@@ -332,6 +329,33 @@ function passvalues() {
     localStorage.setItem('textvalue', username)
     return false
 }
+
+// Set the current page in sessionStorage
+function setCurrentPage(curr) {
+    let current = document.querySelectorAll(".current")
+    for (let i = 0; i < current.length; i++) {
+        let element = current[i]
+        if (!element.classList.contains("hidden")) {
+            element.classList.toggle("hidden")
+        }
+    }
+    for (let j = 0; j < curr.length; j++) {
+        let element = document.querySelector(curr[j])
+        element.classList.toggle("hidden")
+        let currentPage = window.sessionStorage.setItem("currentPage", curr[j])
+    }
+}
+
+// Get current page key value from sessionStorage
+window.addEventListener('load', async (event) =>{
+    const currentPage = window.sessionStorage.getItem('currentPage')
+    if(currentPage){
+        let curr = currentPage.split(',')
+        setCurrentPage(curr)
+    } else {
+        setCurrentPage(['.Login'])
+    }
+})
 
 // Run all functions
 async function run() {
