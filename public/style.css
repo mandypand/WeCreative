@@ -249,17 +249,25 @@ input[type="file"] {
     background: rgba(0, 0, 0, 0.637);
     height: 150px;
     margin: 10px; 
-    margin-left: 600px;
+    margin-top: 40px; 
     position: absolute;
     z-index: 1;
 }
 
-.Toggle__Edit-paragraph {
+.Toggle__Edit-paragraph, .Toggle__Delete-paragraph {
     color: #ffffff; 
     cursor: pointer; 
     font-size: 20px; 
     padding: 5px; 
     margin: 10px; 
+}
+
+.Toggle__Edit-paragraph:hover {
+    color: #8b8b8b; 
+}
+
+.Toggle__Delete-paragraph:hover {
+    color: #8b8b8b; 
 }
 
 .ProfilePost__Post__Btn-container {
@@ -324,6 +332,7 @@ input[type="file"] {
 .Posts {
     background: #1B1B1B;
     height: auto;
+    margin-top: 20px; 
 }
 
 
@@ -430,3 +439,5 @@ a {
     margin: 1rem;
     /* background-color: #494949; */
 }
+
+
