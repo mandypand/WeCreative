@@ -100,7 +100,7 @@ function renderPost(posts, postContainer){
         toggleContainer.append(editParagraph)
 
         let deleteParagraph = document.createElement("p")
-        deleteParagraph.classList.add('Toggle__Edit-paragraph')
+        deleteParagraph.classList.add('Toggle__Delete-paragraph')
         deleteParagraph.innerHTML = "Delete"
         toggleContainer.append(deleteParagraph)
 

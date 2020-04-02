@@ -254,7 +254,7 @@ input[type="file"] {
     z-index: 1;
 }
 
-.Toggle__Edit-paragraph {
+.Toggle__Edit-paragraph, .Toggle__Delete-paragraph {
     color: #ffffff; 
     cursor: pointer; 
     font-size: 20px; 
@@ -263,6 +263,10 @@ input[type="file"] {
 }
 
 .Toggle__Edit-paragraph:hover {
+    color: #8b8b8b; 
+}
+
+.Toggle__Delete-paragraph:hover {
     color: #8b8b8b; 
 }
 
