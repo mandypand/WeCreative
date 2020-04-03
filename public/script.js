@@ -60,7 +60,7 @@ function renderPost(posts, postContainer){
         
         let postC = document.querySelector(postContainer)
         postC.append(div)
-        
+                
         //ADD EDIT & DELETE BUTTON 
         let btnContainer = document.createElement('div')
         btnContainer.classList.add('ProfilePost__Post__Btn-container')
@@ -100,6 +100,15 @@ function renderPost(posts, postContainer){
         deleteParagraph.classList.add('Toggle__Delete-paragraph')
         deleteParagraph.innerHTML = "Delete"
         toggleContainer.append(deleteParagraph)
+        deleteParagraph.addEventListener('click', async(event) => {
+            event.preventDefault()                      
+            const request = await fetch('http://localhost:8070/post/' + post._id, {
+                method: 'DELETE',            
+            })  
+            div.remove()
+            const data = await request.json()
+            return data   
+        })
 
         //POST 
         let headline = document.createElement("h1")
