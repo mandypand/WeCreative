@@ -221,6 +221,15 @@ async function signUpButton() {
 }
 signUpButton()
 
+async function loginButton() {
+    const login = document.querySelector('.Feed__ToLogin-link')
+    login.addEventListener('click', (event) => {
+        event.preventDefault()
+        setCurrentPage([".Login"])
+    })
+}
+loginButton()
+
 // TOGGLE PROFILE AND FEED, IN PROFILE 
 async function feedButton() {
     const feed = document.querySelector('.Profile__ToFeed-link')
