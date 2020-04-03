@@ -193,30 +193,30 @@ const pages = {
     },
 }
 
-//Temporary Nav
-function initNav() {
-    const keys = Object.keys(pages)
-    const nav = document.querySelector('nav')
-    for (let pageKey of keys) {
-        const pageObject = pages[pageKey]
-        let anchor = document.createElement('a')
-        anchor.addEventListener('click', () => {
-            renderView(pageKey)
-        })
-        anchor.innerText = pageObject.title
-        nav.append(anchor)
-    }
-}
+// //Temporary Nav
+// function initNav() {
+//     const keys = Object.keys(pages)
+//     const nav = document.querySelector('nav')
+//     for (let pageKey of keys) {
+//         const pageObject = pages[pageKey]
+//         let anchor = document.createElement('a')
+//         anchor.addEventListener('click', () => {
+//             renderView(pageKey)
+//         })
+//         anchor.innerText = pageObject.title
+//         nav.append(anchor)
+//     }
+// }
 
-//Temporary Nav
-function renderView(page) {
-    if (!pages[page]) { throw new Error('Page not found') }
-    const pageObjects = Object.values(pages)
-    for (let page of pageObjects) {
-        page.element.classList.add('hidden')
-    }
-    pages[page].element.classList.remove('hidden')
-}
+// //Temporary Nav
+// function renderView(page) {
+//     if (!pages[page]) { throw new Error('Page not found') }
+//     const pageObjects = Object.values(pages)
+//     for (let page of pageObjects) {
+//         page.element.classList.add('hidden')
+//     }
+//     pages[page].element.classList.remove('hidden')
+// }
 
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
 async function signUpButton() {
@@ -380,7 +380,7 @@ async function run() {
     initForm()
     const users = await listUsers()
     const posts = await listPosts()
-    initNav()
+    // initNav()
     initLoginForm()
     renderPost(posts, '.Posts__Container-right')
 }

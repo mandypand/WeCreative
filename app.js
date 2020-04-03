@@ -75,6 +75,22 @@ app.post('/post', async (req, res) => {
     res.json(documents)
 })
 
+app.delete('/post/:id', async (req, res) => {
+    const documents = await post.remove({ _id: req.params.id })
+    res.json(documents)
+})
+
+
+app.patch('/post/:id', async (req, res) => {
+    const documents = await post.update({ _id: req.params.id }, {
+        $set: {
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author
+        }
+    })
+    res.json({ 'documents': documents })
+})
 
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
