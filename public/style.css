@@ -370,6 +370,13 @@ button {
 
 /* FEED */ 
 
+.Feed__ToLogin-link {
+    text-decoration: none;
+    color: #ffffff; 
+    font-weight: 100;
+    margin-left: 10px;
+}
+
 .Feed__headline {
     text-align: center;
     color: #ffffff; 
