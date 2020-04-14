@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 //routes
 const authentication = require('./routes/authentication.js')
 
-const users = new Datastore({ filename: 'users.db', autoload: true })
+// const users = new Datastore({ filename: 'users.db', autoload: true })
 const post = new Datastore({ filename: 'post.db', autoload: true })
 const app = express()
 
