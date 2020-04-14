@@ -1,6 +1,7 @@
 const express = require('express')
 const Datastore = require('nedb-promise')
 const cors = require('cors')
+const bcrypt = require('bcryptjs')
 const users = new Datastore({ filename: 'users.db', autoload: true })
 const post = new Datastore({ filename: 'post.db', autoload: true })
 const app = express()
@@ -30,12 +31,15 @@ app.post('/users', async (req, res) => {
     let user = await users.findOne({ email: req.body.email })
 
     if (!user) {
+        const password = req.body.password
+        const hash = await bcrypt.hash(password, 10)
+
         let newUser = {
             name: req.body.name,
             surname: req.body.surname,
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password
+            password: hash
         }
         const documents = await users.insert(newUser);
         res.json(documents)
@@ -47,12 +51,18 @@ app.post('/users', async (req, res) => {
 
 })
 
-app.post('/login', async (req, res) =>{
-    const user = await users.findOne({username: req.body.username})    
-         if(user && user.password == req.body.password){
-             res.status(200)
-             res.send('sucess')
-             
+app.post('/login', async (req, res) => {
+    const user = await users.findOne({username: req.body.username}) 
+    const userPassword = req.body.password
+         if(user){
+            const correctPassword = await bcrypt.compare(userPassword, user.password)
+             if(correctPassword) {
+                res.status(200)
+                res.send('sucess')
+             } else {
+                res.status(404)
+                res.send({error: 'error'})
+             }
          } else {
              res.status(404)
              res.send({error: 'error'})
@@ -91,6 +101,7 @@ app.patch('/post/:id', async (req, res) => {
     })
     res.json({ 'documents': documents })
 })
+
 
 //--post-end--//
 app.listen(8070, () => console.log('Server started'))
