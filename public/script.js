@@ -137,6 +137,8 @@ function initPost() {
         } else {
             createPost(titleValue, contentValue)
             refreshPage()
+            
+            
         }
     })
 }
@@ -193,30 +195,30 @@ const pages = {
     },
 }
 
-//Temporary Nav
-function initNav() {
-    const keys = Object.keys(pages)
-    const nav = document.querySelector('nav')
-    for (let pageKey of keys) {
-        const pageObject = pages[pageKey]
-        let anchor = document.createElement('a')
-        anchor.addEventListener('click', () => {
-            renderView(pageKey)
-        })
-        anchor.innerText = pageObject.title
-        nav.append(anchor)
-    }
-}
+// //Temporary Nav
+// function initNav() {
+//     const keys = Object.keys(pages)
+//     const nav = document.querySelector('nav')
+//     for (let pageKey of keys) {
+//         const pageObject = pages[pageKey]
+//         let anchor = document.createElement('a')
+//         anchor.addEventListener('click', () => {
+//             renderView(pageKey)
+//         })
+//         anchor.innerText = pageObject.title
+//         nav.append(anchor)
+//     }
+// }
 
-//Temporary Nav
-function renderView(page) {
-    if (!pages[page]) { throw new Error('Page not found') }
-    const pageObjects = Object.values(pages)
-    for (let page of pageObjects) {
-        page.element.classList.add('hidden')
-    }
-    pages[page].element.classList.remove('hidden')
-}
+// //Temporary Nav
+// function renderView(page) {
+//     if (!pages[page]) { throw new Error('Page not found') }
+//     const pageObjects = Object.values(pages)
+//     for (let page of pageObjects) {
+//         page.element.classList.add('hidden')
+//     }
+//     pages[page].element.classList.remove('hidden')
+// }
 
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
 async function signUpButton() {
@@ -244,8 +246,8 @@ async function feedButton() {
     const feed = document.querySelector('.Profile__ToFeed-link')
     feed.addEventListener('click', (event) => {
         event.preventDefault()
-        pages[Object.keys(pages)[3]].element.classList.remove('hidden')
-        pages[Object.keys(pages)[0]].element.classList.add('hidden')
+        // pages[Object.keys(pages)[3]].element.classList.remove('hidden')
+        // pages[Object.keys(pages)[0]].element.classList.add('hidden')
         setCurrentPage([".page-4"])
     })
 }
@@ -277,7 +279,7 @@ async function initLoginForm() {
             // pages[Object.keys(pages)[2]].element.classList.add('hidden')
             passvalues()
             setCurrentPage([".page-1"])
-            const result = document.querySelector('.USERNAME').innerHTML = localStorage.getItem('textvalue')
+            const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
         } else {
             error.classList.toggle('hide')
             error.innerHTML = 'Username password missmatch'
@@ -344,7 +346,7 @@ function initForm() {
 // Stores user data
 function passvalues() {
     const username = document.querySelector('.Name').value
-    localStorage.setItem('textvalue', username)
+    sessionStorage.setItem('textvalue', username)
     return false
 }
 
@@ -370,8 +372,10 @@ window.addEventListener('load', async (event) =>{
     if(currentPage){
         let curr = currentPage.split(',')
         setCurrentPage(curr)
+        const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
     } else {
         setCurrentPage(['.Login'])
+        const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
     }
 })
 
@@ -380,7 +384,7 @@ async function run() {
     initForm()
     const users = await listUsers()
     const posts = await listPosts()
-    initNav()
+    // initNav()
     initLoginForm()
     renderPost(posts, '.Posts__Container-right')
 }
