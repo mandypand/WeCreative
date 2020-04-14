@@ -288,6 +288,33 @@ input[type="file"] {
     background: #999999; 
 }
 
+.ProfilePost__Update-btn {
+    color: #797979; 
+    font-size: 15px; 
+    width: 100px; 
+    margin-left: 25px; 
+    cursor: pointer;
+}
+
+.ProfilePost__NewTitle {
+    display: flex; 
+    color: #000000; 
+    height: 50px; 
+    justify-content: center;
+    align-items: center;
+    width: 650px; 
+    margin-left: 25px; 
+}
+
+.ProfilePost__NewContent {
+    display: flex; 
+    color: #000000; 
+    height: 250px; 
+    justify-content: center;
+    width: 650px; 
+    margin-left: 25px;
+}
+
 /* FORM - PROFILE*/
 
 .Profile__Right-Form {

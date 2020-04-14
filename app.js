@@ -95,12 +95,12 @@ app.patch('/post/:id', async (req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
         $set: {
             title: req.body.title,
-            content: req.body.content,
-            author: req.body.author
+            content: req.body.content
         }
     })
     res.json({ 'documents': documents })
 })
+
 
 
 //--post-end--//
