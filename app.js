@@ -15,16 +15,6 @@ app.use(cors())
 app.use(express.json())
 app.use(authentication)
 
-app.get('/users', async (req, res) => {
-    const responsiveJSON = await users.find({})
-    res.json({ 'responsiveJSON': responsiveJSON })
-})
-
-app.get('/users/:id', async (req, res) => {
-    const documents = await users.findOne({ _id: req.params.id })
-    res.json(documents)
-})
-
 app.get('/post', async (req, res) => {
     const responsiveJSON = await post.find({})
     res.json({ 'responsiveJSON': responsiveJSON })

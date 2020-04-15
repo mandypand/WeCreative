@@ -134,7 +134,8 @@ function renderPost(posts, postContainer){
 
             updateBtn.addEventListener('click', async(event) => {
                 event.preventDefault() 
-                console.log("Hej")    
+                console.log("Hej")  
+                refreshPage()  
                 const request = await fetch('http://localhost:8070/post/' + post._id, {
                     method: 'PATCH', 
                     headers: {
