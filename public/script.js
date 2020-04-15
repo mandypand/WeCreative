@@ -91,11 +91,66 @@ function renderPost(posts, postContainer){
         toggleContainer.classList.add('Toggle__Edit')
         btnContainer.append(toggleContainer)
 
+        //Activate Edit
         let editParagraph = document.createElement("p")
         editParagraph.classList.add('Toggle__Edit-paragraph')
         editParagraph.innerHTML = "Edit"
         toggleContainer.append(editParagraph)
 
+        editParagraph.addEventListener('click', async(event) => {
+            event.preventDefault() 
+            
+            if (headline.style.display === 'none') {
+                headline.style.display = 'block';
+            } else {
+                headline.style.display = 'none';
+            }
+
+            if (paragraph.style.display === 'none') {
+                paragraph.style.display = 'block';
+            } else {
+                paragraph.style.display = 'none';
+            }
+
+            //EDIT TITLE
+            const newTitle = document.createElement("input")
+            newTitle.setAttribute("type", "text");
+            newTitle.value = post.title
+            newTitle.classList.add('ProfilePost__NewTitle') 
+            div.append(newTitle)
+
+            //EDIT CONTENT
+            const newContent = document.createElement("input")
+            newContent.setAttribute("type", "text");
+            newContent.value = post.content
+            newContent.classList.add('ProfilePost__NewContent') 
+            div.append(newContent)
+
+            //UDATE BUTTON
+            const updateBtn = document.createElement("BUTTON")
+            updateBtn.innerHTML = "Update"
+            updateBtn.classList.add('ProfilePost__Update-btn') 
+            div.append(updateBtn)
+
+            updateBtn.addEventListener('click', async(event) => {
+                event.preventDefault() 
+                console.log("Hej")    
+                const request = await fetch('http://localhost:8070/post/' + post._id, {
+                    method: 'PATCH', 
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: newTitle.value,
+                        content: newContent.value
+                    })         
+                })  
+                const data = await request.json()
+                return data   
+            })
+        })
+
+        //Activate Delete
         let deleteParagraph = document.createElement("p")
         deleteParagraph.classList.add('Toggle__Delete-paragraph')
         deleteParagraph.innerHTML = "Delete"
