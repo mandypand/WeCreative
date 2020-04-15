@@ -53,12 +53,15 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.Form__Login-link {
+.Form__Signup-link {
     text-decoration: none;
     color: #5d5d5d;
     display: flex;
     justify-content: center;
     margin-top: 90px;
+}
+.Form__Signup-link:hover {
+    color: #ffffff;
 }
 
 .Form__Login-button {
@@ -67,6 +70,10 @@ body {
     border-color: rgba(0, 0, 0, 0.0);
     padding: 1rem;
     margin-top: 30px;
+    cursor: pointer;
+}
+.Form__Login-button:hover {
+    color: #8b8b8b;;
 }
 
 input,
@@ -215,6 +222,15 @@ input[type="file"] {
     margin: 15px; 
 }
 
+.Profile__LogOut-link {
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: 100;
+    margin-top: 50px; 
+}
+.Form__Login-button:hover {
+    color: #8b8b8b;;
+}
 
 /* PROFILE RIGHT SIDE */
 
@@ -365,8 +381,12 @@ input[type="file"] {
 
 .Profile__ToFeed-link {
     text-decoration: none;
+    font-weight: 100;
     color: #ffffff; 
     margin-left: 500px;
+}
+.Profile__ToFeed-link:hover {
+    color: #8b8b8b;;
 }
 
 .ProfilePost__Headline {
@@ -397,11 +417,18 @@ button {
 
 /* FEED */ 
 
+.Wrap__Feed {
+    margin-top: 20px; 
+}
+
 .Feed__ToLogin-link {
     text-decoration: none;
     color: #ffffff; 
     font-weight: 100;
-    margin-left: 10px;
+    margin-left: 10px; 
+}
+.Feed__ToLogin-link:hover {
+    color: #8b8b8b;;
 }
 
 .Feed__headline {
