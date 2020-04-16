@@ -134,7 +134,8 @@ function renderPost(posts, postContainer){
 
             updateBtn.addEventListener('click', async(event) => {
                 event.preventDefault() 
-                console.log("Hej")    
+                console.log("Hej")  
+                refreshPage()  
                 const request = await fetch('http://localhost:8070/post/' + post._id, {
                     method: 'PATCH', 
                     headers: {
@@ -188,7 +189,7 @@ function initPost() {
         const contentValue = document.querySelector('.Profile__Right-Form-inputContent').value
 
         if (titleValue == "" || contentValue == "") {
-            alert('title is empty')
+            alert('please create content before publish')
         } else {
             createPost(titleValue, contentValue)
             refreshPage()
@@ -277,7 +278,7 @@ const pages = {
 
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
 async function signUpButton() {
-    const signUp = document.querySelector('.Form__Login-link')
+    const signUp = document.querySelector('.Form__Signup-link')
     signUp.addEventListener('click', (event) => {
         event.preventDefault()
         // pages[Object.keys(pages)[1]].element.classList.remove('hidden')
@@ -295,6 +296,15 @@ async function loginButton() {
     })
 }
 loginButton()
+
+async function logoutButton() {
+    const login = document.querySelector('.Profile__LogOut-link')
+    login.addEventListener('click', (event) => {
+        event.preventDefault()
+        setCurrentPage([".Login"])
+    })
+}
+logoutButton()
 
 // TOGGLE PROFILE AND FEED, IN PROFILE 
 async function feedButton() {

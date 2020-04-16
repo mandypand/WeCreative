@@ -12,6 +12,16 @@ router.get('/login', async (req, res) => {
 
 })
 
+router.get('/users', async (req, res) => {
+    const responsiveJSON = await users.find({})
+    res.json({ 'responsiveJSON': responsiveJSON })
+})
+
+router.get('/users/:id', async (req, res) => {
+    const documents = await users.findOne({ _id: req.params.id })
+    res.json(documents)
+})
+
 router.post('/users', async (req, res) => {
     let user = await users.findOne({ email: req.body.email })
 
