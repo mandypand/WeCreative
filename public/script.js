@@ -53,24 +53,24 @@ async function createPost(title, content, author) {
 }
 
 // Render posts
-function renderPost(posts, postContainer){    
+function renderPost(posts, postContainer) {
     for (let post of posts) {
         let div = document.createElement('div')
         div.classList.add('Posts')
-        
+
         let postC = document.querySelector(postContainer)
         postC.append(div)
-                
+
         //ADD EDIT & DELETE BUTTON 
         let btnContainer = document.createElement('div')
         btnContainer.classList.add('ProfilePost__Post__Btn-container')
         btnContainer.addEventListener('click', (event) => {
             event.preventDefault()
-                if (toggleContainer.style.display === 'none') {
-                    toggleContainer.style.display = 'block';
-                } else {
-                    toggleContainer.style.display = 'none';
-                }
+            if (toggleContainer.style.display === 'none') {
+                toggleContainer.style.display = 'block';
+            } else {
+                toggleContainer.style.display = 'none';
+            }
         })
 
         let btnEditDelete = document.createElement('div')
@@ -98,8 +98,8 @@ function renderPost(posts, postContainer){
         toggleContainer.append(editParagraph)
 
         editParagraph.addEventListener('click', async(event) => {
-            event.preventDefault() 
-            
+            event.preventDefault()
+
             if (headline.style.display === 'none') {
                 headline.style.display = 'block';
             } else {
@@ -116,38 +116,37 @@ function renderPost(posts, postContainer){
             const newTitle = document.createElement("input")
             newTitle.setAttribute("type", "text");
             newTitle.value = post.title
-            newTitle.classList.add('ProfilePost__NewTitle') 
+            newTitle.classList.add('ProfilePost__NewTitle')
             div.append(newTitle)
 
             //EDIT CONTENT
             const newContent = document.createElement("input")
             newContent.setAttribute("type", "text");
             newContent.value = post.content
-            newContent.classList.add('ProfilePost__NewContent') 
+            newContent.classList.add('ProfilePost__NewContent')
             div.append(newContent)
 
             //UDATE BUTTON
             const updateBtn = document.createElement("BUTTON")
             updateBtn.innerHTML = "Update"
-            updateBtn.classList.add('ProfilePost__Update-btn') 
+            updateBtn.classList.add('ProfilePost__Update-btn')
             div.append(updateBtn)
 
             updateBtn.addEventListener('click', async(event) => {
-                event.preventDefault() 
-                console.log("Hej")  
-                refreshPage()  
+                event.preventDefault()
+                refreshPage()
                 const request = await fetch('http://localhost:8070/post/' + post._id, {
-                    method: 'PATCH', 
+                    method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify({
                         title: newTitle.value,
                         content: newContent.value
-                    })         
-                })  
+                    })
+                })
                 const data = await request.json()
-                return data   
+                return data
             })
         })
 
@@ -157,13 +156,13 @@ function renderPost(posts, postContainer){
         deleteParagraph.innerHTML = "Delete"
         toggleContainer.append(deleteParagraph)
         deleteParagraph.addEventListener('click', async(event) => {
-            event.preventDefault()                      
+            event.preventDefault()
             const request = await fetch('http://localhost:8070/post/' + post._id, {
-                method: 'DELETE',            
-            })  
+                method: 'DELETE',
+            })
             div.remove()
             const data = await request.json()
-            return data   
+            return data
         })
 
         //POST 
@@ -193,15 +192,15 @@ function initPost() {
         } else {
             createPost(titleValue, contentValue)
             refreshPage()
-            
-            
+
+
         }
     })
 }
-initPost()
+
 
 // REFRESH PAGE 
-function refreshPage(){
+function refreshPage() {
     window.location.reload();
 }
 
@@ -223,8 +222,7 @@ async function deletePost(title, content) {
 
 async function initDeletePost() {
     const errase = document.querySelector('.Toggle__Delete-paragraph')
-    errase.addEventListener('click', async (event) => {
-        console.log('its working');
+    errase.addEventListener('click', async(event) => {
         event.preventDefault()
         const response = await fetch('http://localhost:8070/post/:id')
     })
@@ -251,42 +249,18 @@ const pages = {
     },
 }
 
-// //Temporary Nav
-// function initNav() {
-//     const keys = Object.keys(pages)
-//     const nav = document.querySelector('nav')
-//     for (let pageKey of keys) {
-//         const pageObject = pages[pageKey]
-//         let anchor = document.createElement('a')
-//         anchor.addEventListener('click', () => {
-//             renderView(pageKey)
-//         })
-//         anchor.innerText = pageObject.title
-//         nav.append(anchor)
-//     }
-// }
-
-// //Temporary Nav
-// function renderView(page) {
-//     if (!pages[page]) { throw new Error('Page not found') }
-//     const pageObjects = Object.values(pages)
-//     for (let page of pageObjects) {
-//         page.element.classList.add('hidden')
-//     }
-//     pages[page].element.classList.remove('hidden')
-// }
 
 // TOGGLE SIGNUP AND LOGIN, IN LOGIN 
 async function signUpButton() {
     const signUp = document.querySelector('.Form__Signup-link')
     signUp.addEventListener('click', (event) => {
         event.preventDefault()
-        // pages[Object.keys(pages)[1]].element.classList.remove('hidden')
-        // pages[Object.keys(pages)[2]].element.classList.add('hidden')
+            // pages[Object.keys(pages)[1]].element.classList.remove('hidden')
+            // pages[Object.keys(pages)[2]].element.classList.add('hidden')
         setCurrentPage([".Signup"])
     })
 }
-signUpButton()
+
 
 async function loginButton() {
     const login = document.querySelector('.Feed__ToLogin-link')
@@ -295,7 +269,7 @@ async function loginButton() {
         setCurrentPage([".Login"])
     })
 }
-loginButton()
+
 
 async function logoutButton() {
     const login = document.querySelector('.Profile__LogOut-link')
@@ -304,52 +278,53 @@ async function logoutButton() {
         setCurrentPage([".Login"])
     })
 }
-logoutButton()
+
 
 // TOGGLE PROFILE AND FEED, IN PROFILE 
 async function feedButton() {
     const feed = document.querySelector('.Profile__ToFeed-link')
     feed.addEventListener('click', (event) => {
         event.preventDefault()
-        // pages[Object.keys(pages)[3]].element.classList.remove('hidden')
-        // pages[Object.keys(pages)[0]].element.classList.add('hidden')
+            // pages[Object.keys(pages)[3]].element.classList.remove('hidden')
+            // pages[Object.keys(pages)[0]].element.classList.add('hidden')
         setCurrentPage([".page-4"])
     })
 }
-feedButton()
 
 // Login
 async function initLoginForm() {
     const form = document.querySelector('#Form__Login')
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', async(event) => {
         event.preventDefault()
         const username = document.querySelector('.Name').value
         const password = document.querySelector('.Password').value
         const error = document.querySelector('.Form__Login__Error')
 
-        const response = await fetch('http://localhost:8070/login/', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })
 
-        })
-
-        if (response.status == 200) {
-            // pages[Object.keys(pages)[0]].element.classList.remove('hidden')
-            // pages[Object.keys(pages)[2]].element.classList.add('hidden')
-            passvalues()
-            setCurrentPage([".page-1"])
-            const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
-        } else {
-            error.classList.toggle('hide')
-            error.innerHTML = 'Username password missmatch'
-        }
     })
+}
+
+async function login() {
+    const response = await fetch('http://localhost:8070/login/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    })
+    if (response.status == 200) {
+        // pages[Object.keys(pages)[0]].element.classList.remove('hidden')
+        // pages[Object.keys(pages)[2]].element.classList.add('hidden')
+        passvalues()
+        setCurrentPage([".page-1"])
+        const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
+    } else {
+        error.classList.toggle('hide')
+        error.innerHTML = 'Username password missmatch'
+    }
 }
 
 // Registration
@@ -401,8 +376,8 @@ function initForm() {
             errorPasswordRepeat.innerHTML = 'Password does not match!'
         } else {
             createUser(name, surname, username, email, password)
-            // pages[Object.keys(pages)[2]].element.classList.remove('hidden')
-            // pages[Object.keys(pages)[1]].element.classList.add('hidden')
+                // pages[Object.keys(pages)[2]].element.classList.remove('hidden')
+                // pages[Object.keys(pages)[1]].element.classList.add('hidden')
             setCurrentPage([".Login"])
         }
     })
@@ -432,9 +407,9 @@ function setCurrentPage(curr) {
 }
 
 // Get current page key value from sessionStorage
-window.addEventListener('load', async (event) =>{
+window.addEventListener('load', async(event) => {
     const currentPage = window.sessionStorage.getItem('currentPage')
-    if(currentPage){
+    if (currentPage) {
         let curr = currentPage.split(',')
         setCurrentPage(curr)
         const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
@@ -444,28 +419,19 @@ window.addEventListener('load', async (event) =>{
     }
 })
 
-// Run all functions
-async function run() {
-    initForm()
-    const users = await listUsers()
-    const posts = await listPosts()
-    // initNav()
-    initLoginForm()
-    renderPost(posts, '.Posts__Container-right')
-}
-run()
+
 
 // UPLOAD PROFILEPICTURE 
 function toggleDefaultUpload() {
     const realUpload = document.querySelector('.Profile__Upload-profilePicture')
     const customUpload = document.querySelector('.Profile__Upload-profilePicture-Custom')
 
-    customUpload.addEventListener('click', function () {
+    customUpload.addEventListener('click', function() {
         realUpload.click();
     })
 }
-window.addEventListener('load', function () {
-    document.querySelector('input[type="file"]').addEventListener('change', function () {
+window.addEventListener('load', function() {
+    document.querySelector('input[type="file"]').addEventListener('change', function() {
         if (this.files && this.files[0]) {
             var img = document.querySelector('.UserProfilePicture');
             img.src = window.URL.createObjectURL(this.files[0]);
@@ -474,15 +440,21 @@ window.addEventListener('load', function () {
     });
 });
 
-// UPLOAD MP3
-// const loadFile = function(event) {
 
-//     let mp3 = document.getElementById('output');
-//     mp3.src = URL.createObjectURL(event.target.files[0]);
+// Run all functions
+async function run() {
+    initPost()
+    feedButton()
+    initForm()
+    signUpButton()
+    loginButton()
+    logoutButton()
+    login()
 
-//     if (mp3.style.display === 'block') {
-//         mp3.style.display === 'block';
-//     } else {
-//         mp3.style.display = 'grid';
-//     }
-// }
+    const users = await listUsers()
+    const posts = await listPosts()
+        // initNav()
+    initLoginForm()
+    renderPost(posts, '.Posts__Container-right')
+}
+run()

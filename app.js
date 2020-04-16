@@ -1,6 +1,5 @@
 const express = require('express')
 const Datastore = require('nedb-promise')
-const cors = require('cors')
 const bcrypt = require('bcryptjs')
 
 //routes
@@ -11,35 +10,34 @@ const post = new Datastore({ filename: 'post.db', autoload: true })
 const app = express()
 
 app.use(express.static('public'))
-app.use(cors())
 app.use(express.json())
 app.use(authentication)
 
-app.get('/post', async (req, res) => {
+app.get('/post', async(req, res) => {
     let responsiveJSON = await post.find({})
-    responsiveJSON = responsiveJSON.sort((a,b) => b.createdAt - a.createdAt)
+    responsiveJSON = responsiveJSON.sort((a, b) => b.createdAt - a.createdAt)
     res.json({ 'responsiveJSON': responsiveJSON })
 })
 
-app.post('/post', async (req, res) => {
+app.post('/post', async(req, res) => {
     const newPost = {
         title: req.body.title,
         content: req.body.content,
-        author: req.body.author, 
-        createdAt: Date.now() 
+        author: req.body.author,
+        createdAt: Date.now()
     };
 
     const documents = await post.insert(newPost)
     res.json(documents)
 })
 
-app.delete('/post/:id', async (req, res) => {
+app.delete('/post/:id', async(req, res) => {
     const documents = await post.remove({ _id: req.params.id })
     res.json(documents)
 })
 
 
-app.patch('/post/:id', async (req, res) => {
+app.patch('/post/:id', async(req, res) => {
     const documents = await post.update({ _id: req.params.id }, {
         $set: {
             title: req.body.title,
