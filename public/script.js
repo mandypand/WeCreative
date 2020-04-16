@@ -35,6 +35,22 @@ async function listPosts() {
     return data.responsiveJSON
 }
 
+/*
+function renderPost() {
+    const PostFeed = document.querySelector('.ProfilePost');
+    event.preventDefault()
+    const PostFeedTitle = document.querySelector('.Porfile_Right-form-inputTitle').value
+    const PostFeedValue = document.querySelector('.profile_Right-Form-inputContent').value
+
+    if (PostFeedTitle == "" || PostFeedValue == "") {
+        alert('this section is empty')
+    } else {
+        createPost(PostFeedtitle, PostFeedValue)
+    }
+}
+renderPost();
+*/
+
 // Creates a new post
 async function createPost(title, content, author) {
     const request = await fetch('http://localhost:8070/post/', {
@@ -53,24 +69,24 @@ async function createPost(title, content, author) {
 }
 
 // Render posts
-function renderPost(posts, postContainer){    
+function renderPost(posts, postContainer) {
     for (let post of posts) {
         let div = document.createElement('div')
         div.classList.add('Posts')
-        
+
         let postC = document.querySelector(postContainer)
         postC.append(div)
-                
+
         //ADD EDIT & DELETE BUTTON 
         let btnContainer = document.createElement('div')
         btnContainer.classList.add('ProfilePost__Post__Btn-container')
         btnContainer.addEventListener('click', (event) => {
             event.preventDefault()
-                if (toggleContainer.style.display === 'none') {
-                    toggleContainer.style.display = 'block';
-                } else {
-                    toggleContainer.style.display = 'none';
-                }
+            if (toggleContainer.style.display === 'none') {
+                toggleContainer.style.display = 'block';
+            } else {
+                toggleContainer.style.display = 'none';
+            }
         })
 
         let btnEditDelete = document.createElement('div')
@@ -97,9 +113,9 @@ function renderPost(posts, postContainer){
         editParagraph.innerHTML = "Edit"
         toggleContainer.append(editParagraph)
 
-        editParagraph.addEventListener('click', async(event) => {
-            event.preventDefault() 
-            
+        editParagraph.addEventListener('click', async (event) => {
+            event.preventDefault()
+
             if (headline.style.display === 'none') {
                 headline.style.display = 'block';
             } else {
@@ -116,38 +132,38 @@ function renderPost(posts, postContainer){
             const newTitle = document.createElement("input")
             newTitle.setAttribute("type", "text");
             newTitle.value = post.title
-            newTitle.classList.add('ProfilePost__NewTitle') 
+            newTitle.classList.add('ProfilePost__NewTitle')
             div.append(newTitle)
 
             //EDIT CONTENT
             const newContent = document.createElement("input")
             newContent.setAttribute("type", "text");
             newContent.value = post.content
-            newContent.classList.add('ProfilePost__NewContent') 
+            newContent.classList.add('ProfilePost__NewContent')
             div.append(newContent)
 
             //UDATE BUTTON
             const updateBtn = document.createElement("BUTTON")
             updateBtn.innerHTML = "Update"
-            updateBtn.classList.add('ProfilePost__Update-btn') 
+            updateBtn.classList.add('ProfilePost__Update-btn')
             div.append(updateBtn)
 
-            updateBtn.addEventListener('click', async(event) => {
-                event.preventDefault() 
-                console.log("Hej")  
-                refreshPage()  
+            updateBtn.addEventListener('click', async (event) => {
+                event.preventDefault()
+                console.log("Hej")
+                refreshPage()
                 const request = await fetch('http://localhost:8070/post/' + post._id, {
-                    method: 'PATCH', 
+                    method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify({
                         title: newTitle.value,
                         content: newContent.value
-                    })         
-                })  
+                    })
+                })
                 const data = await request.json()
-                return data   
+                return data
             })
         })
 
@@ -156,14 +172,14 @@ function renderPost(posts, postContainer){
         deleteParagraph.classList.add('Toggle__Delete-paragraph')
         deleteParagraph.innerHTML = "Delete"
         toggleContainer.append(deleteParagraph)
-        deleteParagraph.addEventListener('click', async(event) => {
-            event.preventDefault()                      
+        deleteParagraph.addEventListener('click', async (event) => {
+            event.preventDefault()
             const request = await fetch('http://localhost:8070/post/' + post._id, {
-                method: 'DELETE',            
-            })  
+                method: 'DELETE',
+            })
             div.remove()
             const data = await request.json()
-            return data   
+            return data
         })
 
         //POST 
@@ -181,6 +197,7 @@ function renderPost(posts, postContainer){
 }
 
 // Init post
+
 function initPost() {
     const publishPostBtn = document.querySelector('.Profile__Right-Form-button');
     publishPostBtn.addEventListener('click', (event) => {
@@ -193,15 +210,16 @@ function initPost() {
         } else {
             createPost(titleValue, contentValue)
             refreshPage()
-            
-            
+
+
         }
     })
 }
 initPost()
 
+
 // REFRESH PAGE 
-function refreshPage(){
+function refreshPage() {
     window.location.reload();
 }
 
@@ -432,9 +450,9 @@ function setCurrentPage(curr) {
 }
 
 // Get current page key value from sessionStorage
-window.addEventListener('load', async (event) =>{
+window.addEventListener('load', async (event) => {
     const currentPage = window.sessionStorage.getItem('currentPage')
-    if(currentPage){
+    if (currentPage) {
         let curr = currentPage.split(',')
         setCurrentPage(curr)
         const result = document.querySelector('.USERNAME').innerHTML = sessionStorage.getItem('textvalue')
@@ -452,6 +470,7 @@ async function run() {
     // initNav()
     initLoginForm()
     renderPost(posts, '.Posts__Container-right')
+    renderPost(posts, '.Posts__Container-left')
 }
 run()
 
