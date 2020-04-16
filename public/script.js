@@ -492,16 +492,3 @@ window.addEventListener('load', function () {
         }
     });
 });
-
-// UPLOAD MP3
-// const loadFile = function(event) {
-
-//     let mp3 = document.getElementById('output');
-//     mp3.src = URL.createObjectURL(event.target.files[0]);
-
-//     if (mp3.style.display === 'block') {
-//         mp3.style.display === 'block';
-//     } else {
-//         mp3.style.display = 'grid';
-//     }
-// }

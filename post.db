@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"title":"hej","content":"post1","createdAt":1587025156739,"_id":"lVqlI0yo6nNEYvhc"}
 {"title":"rere","content":"rere","createdAt":1587030391573,"_id":"FSS55lkPvU0KOkBU"}
 {"title":"Jag heter matias","content":"hej jag heter matias linden","createdAt":1587030512947,"_id":"RYcy5oS6NmIc2utt"}
@@ -7,3 +8,6 @@
 {"title":"hur går kärlekslivet?","content":"bajs och åt helvetet","createdAt":1587031065756,"_id":"TPMeAc0G1QmgpAYn"}
 {"title":"hur går kärlekslivet?","content":"dwr","createdAt":1587031065756,"_id":"TPMeAc0G1QmgpAYn"}
 {"$$deleted":true,"_id":"o9QVllWq1VIxMXUo"}
+=======
+{"title":"hej","content":"då","createdAt":1587025249490,"_id":"SqmeTkqnoQqQrxwL"}
+>>>>>>> f16e78a9f27e70293df8d883b96a0699ea1d8f10

@@ -26,6 +26,7 @@ body {
     margin-left: 20px;
 }
 
+
 /* LOGIN */
 
 .Wrap {
@@ -60,6 +61,7 @@ body {
     justify-content: center;
     margin-top: 90px;
 }
+
 .Form__Signup-link:hover {
     color: #ffffff;
 }
@@ -72,8 +74,10 @@ body {
     margin-top: 30px;
     cursor: pointer;
 }
+
 .Form__Login-button:hover {
-    color: #8b8b8b;;
+    color: #8b8b8b;
+    ;
 }
 
 input,
@@ -171,66 +175,71 @@ input[type=Submit] {
     font-weight: 100;
 }
 
+
 /* UPLOAD PROFILEPICTURE */
 
 .Profile__Form-uploadImg {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .Profile__Upload-profilePicture {
- padding: 10px; 
+    padding: 10px;
 }
 
-
 input[type="file"] {
-     text-align: center;
-     color: white; 
+    text-align: center;
+    color: white;
 }
 
 .Profile__Upload-profilePicture-Custom {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     cursor: pointer;
-    display: inline-block; 
-    color: white; 
+    display: inline-block;
+    color: white;
     text-align: center;
     background: rgba(43, 43, 43, 0.637);
 }
 
 .Insert-profilePicture__Container {
-    width: 230px; 
-    height: 160px; 
+    width: 230px;
+    height: 160px;
 }
 
 .UserProfilePicture {
-    width: 230px; 
-    height: 160px; 
+    width: 230px;
+    height: 160px;
 }
 
-/* UPLOAD MUSIC */ 
+
+/* UPLOAD MUSIC */
+
 .Profile__Left-button {
     border-style: none;
     font-size: 20px;
     width: 400px;
     padding: 10px;
     margin: 15px;
-    font-size: 20px; 
-    width: 230px; 
-    padding: 10px; 
-    margin: 15px; 
+    font-size: 20px;
+    width: 230px;
+    padding: 10px;
+    margin: 15px;
 }
 
 .Profile__LogOut-link {
-    color: #ffffff; 
+    color: #ffffff;
     text-decoration: none;
     font-weight: 100;
-    margin-top: 50px; 
+    margin-top: 50px;
 }
+
 .Form__Login-button:hover {
-    color: #8b8b8b;;
+    color: #8b8b8b;
+    ;
 }
+
 
 /* PROFILE RIGHT SIDE */
 
@@ -257,79 +266,84 @@ input[type="file"] {
     color: #B1B1B1;
 }
 
+
 /* EDIT BUTTON */
-/* HIDE AND SHOW CLASS */ 
+
+
+/* HIDE AND SHOW CLASS */
 
 .Toggle__Edit {
-    display: none; 
+    display: none;
     background: rgba(0, 0, 0, 0.637);
     height: 150px;
-    margin: 10px; 
-    margin-top: 40px; 
+    margin: 10px;
+    margin-top: 40px;
     position: absolute;
     z-index: 1;
 }
 
-.Toggle__Edit-paragraph, .Toggle__Delete-paragraph {
-    color: #ffffff; 
-    cursor: pointer; 
-    font-size: 20px; 
-    padding: 5px; 
-    margin: 10px; 
+.Toggle__Edit-paragraph,
+.Toggle__Delete-paragraph {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
 }
 
 .Toggle__Edit-paragraph:hover {
-    color: #8b8b8b; 
+    color: #8b8b8b;
 }
 
 .Toggle__Delete-paragraph:hover {
-    color: #8b8b8b; 
+    color: #8b8b8b;
 }
 
 .ProfilePost__Post__Btn-container {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     margin-right: 20px;
     position: relative;
 }
 
 .ProfilePost__Btn {
-    height: 10px; 
-    width: 10px; 
+    height: 10px;
+    width: 10px;
     border-radius: 100%;
-    margin: 2px; 
-    margin-top: 20px; 
-    cursor: pointer; 
-    background: #999999; 
+    margin: 2px;
+    margin-top: 20px;
+    cursor: pointer;
+    background: #999999;
 }
 
 .ProfilePost__Update-btn {
-    color: #797979; 
-    font-size: 15px; 
-    width: 100px; 
-    margin-left: 25px; 
+    color: #797979;
+    font-size: 15px;
+    width: 100px;
+    margin-left: 25px;
     cursor: pointer;
 }
 
 .ProfilePost__NewTitle {
-    display: flex; 
-    color: #000000; 
-    height: 50px; 
+    display: flex;
+    color: #000000;
+    height: 50px;
     justify-content: center;
     align-items: center;
-    width: 650px; 
-    margin-left: 25px; 
+    width: 650px;
+    margin-left: 25px;
 }
 
 .ProfilePost__NewContent {
-    display: flex; 
-    color: #000000; 
-    height: 250px; 
+    display: flex;
+    color: #000000;
+    height: 250px;
     justify-content: center;
-    width: 650px; 
+    width: 650px;
     margin-left: 25px;
 }
+
 
 /* FORM - PROFILE*/
 
@@ -346,7 +360,7 @@ input[type="file"] {
 }
 
 .Profile__Right-Form-inputContent {
-    height: 250px; 
+    height: 250px;
 }
 
 .Profile__Right-Form-button {
@@ -366,27 +380,30 @@ input[type="file"] {
 }
 
 .Posts__Container-right {
-    margin-left: 500px; 
-    margin-top: 5px; 
+    margin-left: 500px;
+    margin-top: 5px;
     width: 55%;
 }
 
+
 /* CREATE POST */
+
 .Posts {
     background: #1B1B1B;
     height: auto;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
-
 
 .Profile__ToFeed-link {
     text-decoration: none;
     font-weight: 100;
-    color: #ffffff; 
+    color: #ffffff;
     margin-left: 500px;
 }
+
 .Profile__ToFeed-link:hover {
-    color: #8b8b8b;;
+    color: #8b8b8b;
+    ;
 }
 
 .ProfilePost__Headline {
@@ -415,63 +432,67 @@ button {
     margin: 15px;
 }
 
-/* FEED */ 
+
+/* FEED */
 
 .Wrap__Feed {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .Feed__ToLogin-link {
     text-decoration: none;
-    color: #ffffff; 
+    color: #ffffff;
     font-weight: 100;
-    margin-left: 10px; 
+    margin-left: 10px;
 }
+
 .Feed__ToLogin-link:hover {
-    color: #8b8b8b;;
+    color: #8b8b8b;
+    ;
 }
 
 .Feed__headline {
     text-align: center;
-    color: #ffffff; 
-    font-size: 100px; 
-    padding: 20px; 
+    color: #ffffff;
+    font-size: 100px;
+    padding: 20px;
     font-weight: 100;
 }
 
 .FeedPosts__Container {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .FeedPost {
-    display: flex; 
-    width: 50%; 
+    display: flex;
+    width: 50%;
 }
 
 .FeedPost__Container {
     justify-content: center;
     height: auto;
-    margin: 20px; 
-    background: #1B1B1B; 
+    margin: 20px;
+    background: #1B1B1B;
 }
 
 .FeedPost__Headline {
-    color: #ffffff; 
+    color: #ffffff;
     text-align: center;
-    font-size: 40px; 
+    font-size: 40px;
     font-weight: 100;
-    margin: 0; 
-    padding: 0; 
-    padding: 20px; 
+    margin: 0;
+    padding: 0;
+    padding: 20px;
 }
 
 .FeedPost__Paragraph {
-    font-size: 20px; 
-    color: #ffffff; 
-    padding: 30px; 
+    font-size: 20px;
+    color: #ffffff;
+    padding: 30px;
 }
+
 
 /* FOOTER */
 
@@ -484,21 +505,19 @@ footer {
     height: auto;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.TemporaryNav{
+.TemporaryNav {
     display: flex;
     justify-content: center;
 }
 
 a {
-    color: blue; 
+    color: blue;
     cursor: pointer;
     padding: 1rem;
     margin: 1rem;
     /* background-color: #494949; */
 }
-
-
