@@ -16,15 +16,17 @@ app.use(express.json())
 app.use(authentication)
 
 app.get('/post', async (req, res) => {
-    const responsiveJSON = await post.find({})
+    let responsiveJSON = await post.find({})
+    responsiveJSON = responsiveJSON.sort((a,b) => b.createdAt - a.createdAt)
     res.json({ 'responsiveJSON': responsiveJSON })
 })
 
 app.post('/post', async (req, res) => {
-    const newPost = await {
+    const newPost = {
         title: req.body.title,
         content: req.body.content,
-        author: req.body.author
+        author: req.body.author, 
+        createdAt: Date.now() 
     };
 
     const documents = await post.insert(newPost)
